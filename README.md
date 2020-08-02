@@ -1,2 +1,3 @@
 # game-of-numbers
-[Попробуй](https://ChaplinGleb.github.io/game-of-numbers/index.html)
+
+[Попробуй](https://chaplingleb.github.io/game-of-numbers/)
