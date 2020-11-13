@@ -1,4 +1,25 @@
-let name = prompt("Введите свое имя")
+let all = document.querySelectorAll('.r-all');
+console.log(all)
+console.log(all.length)
+for (let a = 0; a < all.length; a++){ 
+    let radios = all[a].querySelectorAll('.r-input');
+    let i = 1;
+    all[a].style.setProperty('--options',radios.length);
+    radios.forEach((input)=>{
+        input.setAttribute('data-pos',i);
+        input.addEventListener('click',(e)=>{
+            all[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+        });
+        i++;
+    });
+}; 
+
+
+
+
+
+
+/* let name = prompt("Введите свое имя")
 while (name == null || name == "") {
    name = prompt(`Введите свое имя снова`)
 }
@@ -29,4 +50,4 @@ do {
 }
    while (startEnd == true) {
       alert("До свидания!")
-   }
+   } */
