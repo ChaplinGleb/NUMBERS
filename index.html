@@ -6,37 +6,69 @@
    <link rel="stylesheet" href="css/style.css">
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
    <link href="favicon.ico">
-   <title>Guess the number</title>
+   <title>Игра в числа</title>
 </head>
 <body>
    <div class="wrapper">
       <div class="container">
-         <h1 class="container__title">Numbers</h1>
-         <p class="container__subtitle_diff">Choose the difficulty</p>
-         <div class="r-all">
-            <span class="r-group">
-               <input class="r-input" type="radio" name="radioname" id="radio-1"/>
-               <label for="radio-1">Easy</label>
+         <h1 class="container__title">Числа</h1>
+         <p class="container__subtitle_diff">Выбери сложность</p>
+
+         <div class="difficulty-block">
+            <span class="difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-1"/>
+               <label for="radio-1">Легко</label>
            </span>
-            <span class="r-group">
-                <input class="r-input" type="radio" name="radioname" id="radio-2"/>
-                <label for="radio-2">Medium</label>
+            <span class="difficulty-block__item">
+                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-2"/>
+                <label for="radio-2">Средне</label>
             </span>
-            <span class="r-group">
-                <input class="r-input" type="radio" name="radioname" id="radio-3"/>
-                <label for="radio-3">Hard</label>
+            <span class="difficulty-block__item">
+                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-3"/>
+                <label for="radio-3">Сложно</label>
             </span>
-            <span class="r-group">
-                <input class="r-input" type="radio" name="radioname" id="radio-4"/>
-                <label for="radio-4">Expert</label>
+            <span class="difficulty-block__item">
+                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-4"/>
+                <label for="radio-4">Эксперт</label>
             </span>            
         </div>
-         <p class="container__subtitle_hits">Hits</p>
-         <input class="checkbox" id="checkbox1" type="checkbox"/>
-         <label for="checkbox1" class="checkbox-label"></label>
-         <button class="container__btn"> Go!</button>
+
+         <p class="container__subtitle_hits">Подсказки</p>
+         <div class="block-check">
+            <input class="checkbox" id="checkbox1" type="checkbox"/>
+            <label for="checkbox1" class="checkbox-label"></label>
+         </div>
+
+         <div class="hits-block difficulty-block">
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-5"/>
+               <label for="radio-5">1</label>
+           </span>
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-6"/>
+               <label for="radio-6">2</label>
+            </span>
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-7"/>
+               <label for="radio-7">3</label>
+            </span>
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-8"/>
+               <label for="radio-8">4</label>
+            </span>            
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-9"/>
+               <label for="radio-9">5</label>
+            </span>            
+            <span class="hits-block__item difficulty-block__item">
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-10"/>
+               <label for="radio-10">6</label>
+            </span>            
+        </div>
+
+         <button class="container__btn">Играть</button>
       </div>
    </div>
-   <script src="script.js"></script>   
+   <script src="/scripts/script.js"></script>   
 </body>
 </html>

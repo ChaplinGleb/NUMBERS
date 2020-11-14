@@ -1,8 +1,8 @@
-let all = document.querySelectorAll('.r-all');
+let all = document.querySelectorAll('.difficulty-block');
 console.log(all)
 console.log(all.length)
 for (let a = 0; a < all.length; a++){ 
-    let radios = all[a].querySelectorAll('.r-input');
+    let radios = all[a].querySelectorAll('.difficulty-block__input');
     let i = 1;
     all[a].style.setProperty('--options',radios.length);
     radios.forEach((input)=>{
