@@ -45,37 +45,42 @@
             <input class="block-check__input" id="checkbox1" type="checkbox"/>
             <label class="block-check__label" for="checkbox1" ></label>
       </div>
+
+
+
       <div class="hits-block difficulty-block" id='hits-block'>
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-5" checked/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-5" checked/>
                <label for="radio-5">1</label>
            </span>
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-6"/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-6"/>
                <label for="radio-6">2</label>
             </span>
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-7"/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-7"/>
                <label for="radio-7">3</label>
             </span>
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-8"/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-8"/>
                <label for="radio-8">4</label>
             </span>            
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-9"/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-9"/>
                <label for="radio-9">5</label>
             </span>            
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-10"/>
+               <input class="hits-block__input" type="radio" name="radioname2" id="radio-10"/>
                <label for="radio-10">6</label>
             </span>            
       </div>
 
       <!-- Attempts -->
-      <p class="setting__subtitle">Попыток: 10</p>
+      <p class="setting__subtitle" id="attempts">Попыток: 10</p>
       <button class="setting__btn-start" id="start">Играть</button>
    </div>
+
+
    <!-- Play -->
    <div class="container play" id="play">
       <input class="play__input" type="number" placeholder="Твои предположения" id='playInput'>
@@ -86,7 +91,7 @@
       </button>
 
       <div class="play__box">
-         <p class="play__answers-block_item">Твой ответ 123 - это слишком много</p>
+         <p class="play__answers-block_item">123 - это слишком много</p>
       </div>
       
       <button class="play__btn-hit" id="getHits" onclick="getHits()">Подсказка (1 шт.)</button>

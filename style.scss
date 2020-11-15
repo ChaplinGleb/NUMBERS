@@ -157,8 +157,8 @@ input:checked + label {
 }
 .block-check{
    position: absolute;
-   top: 157px;
-   left: 140px;
+   top: 155px;
+   left: 130px;
 
    &__label {
       position: relative;
@@ -225,7 +225,7 @@ input:checked + label {
 
 /* PLAY */
 .play{
-   display: none;
+   display: block;
 
    &__input {
       display: block;

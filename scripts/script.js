@@ -7,7 +7,7 @@
 */
 
 const btnHits = document.getElementById('getHits')
-let numOfHits
+
 
 
 
@@ -21,16 +21,15 @@ $(function(){
          }, 300)
          $('#getHits').toggleClass('play__btn-hit-show')
          $('#blockHits').toggleClass('play__hits-block_show')
-         
          j = 1
       }else{
-            $('#hits-block').toggleClass('hits-block-full')
-            setTimeout(function(){
-               $('.setting').toggleClass('setting-full')
-            }, 300)
-            $('#getHits').toggleClass('play__btn-hit-show')
-            $('#blockHits').toggleClass('play__hits-block_show')
-            j = 0
+         $('#hits-block').toggleClass('hits-block-full')
+         setTimeout(function(){
+            $('.setting').toggleClass('setting-full')
+         }, 300)
+         $('#getHits').toggleClass('play__btn-hit-show')
+         $('#blockHits').toggleClass('play__hits-block_show')
+         j = 0
       }
    })
    $('#start').click(function(){
@@ -41,21 +40,59 @@ $(function(){
    })
 })
 
-let all = document.querySelectorAll('.difficulty-block');
-for (let a = 0; a < all.length; a++){ 
-   let radios = all[a].querySelectorAll('.difficulty-block__input');
+/* difficulty */
+let all1 = document.querySelectorAll('.difficulty-block');
+let attempts = document.getElementById('attempts');
+let numOfDiff
+for (let a = 0; a < all1.length; a++){ 
+   let radios = all1[a].querySelectorAll('.difficulty-block__input');
    let i = 1;
-   all[a].style.setProperty('--options',radios.length);
+   all1[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
-         all[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
-         numOfHits = e.target.getAttribute('data-pos')
-         btnHits.innerHTML = `Подсказка (${numOfHits} шт.)`
+         all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         numOfDiff = e.target.getAttribute('data-pos')
+         switch(numOfDiff){
+            case '1':
+               attempts.innerHTML = "Попыток: 10" 
+            break;
+            case '2':
+               attempts.innerHTML = "Попыток: 15" 
+            break;
+            case '3':
+               attempts.innerHTML = "Попыток: 20" 
+            break;
+            case '4':
+               attempts.innerHTML = "Попыток: 25" 
+            break;
+         }
       });
       i++;
    });
 };
+
+
+/* Hits */
+let all2 = document.querySelectorAll('.hits-block');
+let numOfHits
+for (let a = 0; a < all2.length; a++){ 
+   let radios = all2[a].querySelectorAll('.hits-block__input');
+   let i = 1;
+   all2[a].style.setProperty('--options',radios.length);
+   radios.forEach((input)=>{
+      input.setAttribute('data-pos',i);
+      input.addEventListener('click',(e)=>{
+         all2[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         numOfHits = e.target.getAttribute('data-pos')
+         btnHits.innerHTML = `Подсказка (${numOfHits} шт.)`
+         
+      });
+      i++;
+   });
+};
+
+
 
 
 
