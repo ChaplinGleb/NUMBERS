@@ -9,12 +9,12 @@
    <title>Игра в числа</title>
 </head>
 <body>
-   <div class="wrapper">
-      <div class="container">
-         <h1 class="container__title">Числа</h1>
-         <p class="container__subtitle_diff">Выбери сложность</p>
-
-         <div class="difficulty-block">
+   <div class="container setting" id='setting'>
+      <h1 class="setting__title">Числа</h1>
+      <p class="setting__subtitle">Выбери сложность</p>
+      
+      <!-- Difficulty -->
+      <div class="difficulty-block">
             <span class="difficulty-block__item">
                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-1" checked/>
                <label for="radio-1">Легко</label>
@@ -27,7 +27,7 @@
                 <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-3"/>
                 <label for="radio-3">Сложно</label>
             </span>
-            <span class="difficulty-block__item">
+            <span class="difficulty-block__item lock">
                <div class="lock-icon">
                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                      <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
@@ -37,15 +37,15 @@
                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-4" disabled/>
                <label for="radio-4">Эксперт</label>
             </span>            
-        </div>
+      </div>
 
-         <p class="container__subtitle_hits">Подсказки</p>
-         <div class="block-check">
-            <input class="checkbox" id="checkbox1" type="checkbox"/>
-            <label for="checkbox1" class="checkbox-label"></label>
-         </div>
-
-         <div class="hits-block difficulty-block" id='hits-block'>
+      <!-- Hits -->
+      <p class="setting__subtitle">Подсказки</p>
+      <div class="block-check">
+            <input class="block-check__input" id="checkbox1" type="checkbox"/>
+            <label class="block-check__label" for="checkbox1" ></label>
+      </div>
+      <div class="hits-block difficulty-block" id='hits-block'>
             <span class="hits-block__item difficulty-block__item">
                <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-5" checked/>
                <label for="radio-5">1</label>
@@ -70,12 +70,34 @@
                <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-10"/>
                <label for="radio-10">6</label>
             </span>            
-        </div>
-
-         <button class="container__btn">Играть</button>
       </div>
-   </div>
 
+      <!-- Attempts -->
+      <p class="setting__subtitle">Попыток: 10</p>
+      <button class="setting__btn-start" id="start">Играть</button>
+   </div>
+   <!-- Play -->
+   <div class="container play" id="play">
+      <input class="play__input" type="number" placeholder="Твои предположения" id='playInput'>
+      <button class="play__btn-submit">
+         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+          </svg>
+      </button>
+
+      <div class="play__box">
+         <p class="play__answers-block_item">Твой ответ 123 - это слишком много</p>
+      </div>
+      
+      <button class="play__btn-hit" id="getHits" onclick="getHits()">Подсказка (1 шт.)</button>
+      <div class="play__hits-block play__box" id="blockHits">
+         <p class="play__hits-block_item">Сумма всех цифр числа равна 12</p>
+         <p class="play__hits-block_item">Загаданное число не четное</p>
+         <p class="play__hits-block_item">Первая цифра не четная</p>
+         <p class="play__hits-block_item">Сумма последних двух цифр - 57</p>
+      </div>
+
+   </div>
    <script src="/scripts/jquery.min.js"></script>
    <script src="/scripts/script.js"></script>
 </body>
