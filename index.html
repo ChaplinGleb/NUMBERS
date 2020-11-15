@@ -16,7 +16,7 @@
 
          <div class="difficulty-block">
             <span class="difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-1"/>
+               <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-1" checked/>
                <label for="radio-1">Легко</label>
            </span>
             <span class="difficulty-block__item">
@@ -28,8 +28,14 @@
                 <label for="radio-3">Сложно</label>
             </span>
             <span class="difficulty-block__item">
-                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-4"/>
-                <label for="radio-4">Эксперт</label>
+               <div class="lock-icon">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+                     <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                   </svg>
+               </div>
+               <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-4" disabled/>
+               <label for="radio-4">Эксперт</label>
             </span>            
         </div>
 
@@ -39,9 +45,9 @@
             <label for="checkbox1" class="checkbox-label"></label>
          </div>
 
-         <div class="hits-block difficulty-block">
+         <div class="hits-block difficulty-block" id='hits-block'>
             <span class="hits-block__item difficulty-block__item">
-               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-5"/>
+               <input class="difficulty-block__input" type="radio" name="radioname2" id="radio-5" checked/>
                <label for="radio-5">1</label>
            </span>
             <span class="hits-block__item difficulty-block__item">
@@ -69,6 +75,8 @@
          <button class="container__btn">Играть</button>
       </div>
    </div>
-   <script src="/scripts/script.js"></script>   
+
+   <script src="/scripts/jquery.min.js"></script>
+   <script src="/scripts/script.js"></script>
 </body>
 </html>

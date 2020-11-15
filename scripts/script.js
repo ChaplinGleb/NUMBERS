@@ -1,6 +1,25 @@
+$(function(){
+   let j = 0
+   $('#checkbox1').click(function(){
+      if (j == 0){
+         $('.container').toggleClass('container-full')
+         setTimeout(function(){
+            $('#hits-block').toggleClass('hits-block-full')
+         }, 300)
+         j = 1
+      }else{
+            $('#hits-block').toggleClass('hits-block-full')
+            setTimeout(function(){
+               $('.container').toggleClass('container-full')
+            }, 300)
+            j = 0
+      }
+   })
+})
+
+
+
 let all = document.querySelectorAll('.difficulty-block');
-console.log(all)
-console.log(all.length)
 for (let a = 0; a < all.length; a++){ 
     let radios = all[a].querySelectorAll('.difficulty-block__input');
     let i = 1;
