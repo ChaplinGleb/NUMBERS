@@ -2,13 +2,12 @@ $blue: #337AB7;
 $orange: #e67928;
 
 /* 
-
-
-Четное / не четное
+Четное / нечетное
 Сумма всех цифр в числе
 Произведение всех цифр в числе
-Последняя цифра не четная
-Первое число Четное не четное
+Первое число Четное / нечетное
+В числе есть цифра 342
+Число делиться на 
 */
 
 *{
@@ -137,7 +136,7 @@ input:checked + label {
    color: #fff;
 }
 .lock-icon{
-   display: block;
+   display: none;
    position: absolute;
    left: 30px;
    top: -3px;
@@ -238,6 +237,10 @@ input:checked + label {
       box-sizing: border-box;
       background: $orange;
    }
+   &__input:disabled{
+      opacity: 0.5;
+
+   }
    
    &__btn-submit {
       position: absolute;
@@ -250,6 +253,10 @@ input:checked + label {
       font-size: 25px;
       line-height: 1.6;
       cursor: pointer;
+   }
+   &__btn-submit:disabled{
+      background: #fff;
+      opacity: 0.2;
    }
 
    &__btn-hit {

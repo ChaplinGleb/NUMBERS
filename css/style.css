@@ -1,12 +1,11 @@
 @charset "UTF-8";
 /* 
-
-
-Четное / не четное
+Четное / нечетное
 Сумма всех цифр в числе
 Произведение всех цифр в числе
-Последняя цифра не четная
-Первое число Четное не четное
+Первое число Четное / нечетное
+В числе есть цифра 342
+Число делиться на 
 */
 * {
   padding: 0;
@@ -172,7 +171,7 @@ input:checked + label {
 }
 
 .lock-icon {
-  display: block;
+  display: none;
   position: absolute;
   left: 30px;
   top: -3px;
@@ -290,6 +289,10 @@ input:checked + label {
   background: #e67928;
 }
 
+.play__input:disabled {
+  opacity: 0.5;
+}
+
 .play__btn-submit {
   position: absolute;
   top: 20px;
@@ -301,6 +304,11 @@ input:checked + label {
   font-size: 25px;
   line-height: 1.6;
   cursor: pointer;
+}
+
+.play__btn-submit:disabled {
+  background: #fff;
+  opacity: 0.2;
 }
 
 .play__btn-hit {
