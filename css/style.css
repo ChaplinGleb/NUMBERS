@@ -273,7 +273,7 @@ input:checked + label {
 
 /* PLAY */
 .play {
-  display: block;
+  display: none;
 }
 
 .play__input {
