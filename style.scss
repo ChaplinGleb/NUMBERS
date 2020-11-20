@@ -16,10 +16,13 @@ $orange: #e67928;
    user-select: none;
    border: none;
    outline: none;
-   transition: 0.2s;
 }
 .container{
-   position: relative;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 50%;
+   transform: translate(0, -50%);
    background: $blue;
    border-radius: 5px;
    font-family: 'Poppins', sans-serif;
@@ -27,8 +30,17 @@ $orange: #e67928;
    box-sizing: border-box;
    padding: 15px 15px;
    width: 400px;
-   transition: 0.2s;
+   z-index: -11111;
 
+}
+button{
+   display: block;
+   width: 40%;
+   height: 43px;
+   cursor: pointer;
+   border-radius: 5px;
+   background: $orange;
+   font-size: 20px;
 }
 button:hover{
    filter: brightness(0.9);
@@ -38,9 +50,37 @@ button:disabled{
    opacity: 0.8;
    pointer-events: none;
 }
+::-webkit-scrollbar {
+   width: 15px;
+   border: 3px solid transparent;
+}
+ 
+::-webkit-scrollbar-track {
+   background: none;
+   border: 3px solid transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+   background: $orange;
+   border-radius: 20px;
+   margin-right: 5px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+   background: #d76a1a;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb, 
+::-webkit-scrollbar-thumb:hover {
+   border: 5px solid rgba(255,255,255,0);
+   background-clip: padding-box;
+}
+
+/* setting block */
 .setting{
    display: block;
-   height: 280px;
+   height: 250px;
+   transition: 0s;
    
    &__title{
       font-size: 30px;
@@ -56,28 +96,21 @@ button:disabled{
       bottom: 63px;
    }
    &__btn-start{
-      display: block;
       position: absolute;
       bottom: 15px;
       left: 0;
       right: 0;
       margin: 0 auto;
       width: 40%;
-      height: 43px;
-      cursor: pointer;
-      border-radius: 5px;
-      background: $orange;
-      font-size: 20px;
    }
 }
 .setting-full{
-   height: 330px;
+   height: 300px;
 }
 .setting-hidden{
    display: none;
 }
-
-/* difficulty-block */
+/* difficulty */
 .difficulty-block {
    background: $orange;
    border-radius: 5px;
@@ -135,7 +168,7 @@ input[type=radio] + label {
 input:checked + label {
    color: #fff;
 }
-.lock-icon{
+/*.lock-icon{
    display: none;
    position: absolute;
    left: 30px;
@@ -146,8 +179,7 @@ input:checked + label {
 }
 .lock{
    pointer-events: none;
-}
-
+} */
 
 
 /* CHECKBOX */
@@ -156,7 +188,7 @@ input:checked + label {
 }
 .block-check{
    position: absolute;
-   top: 155px;
+   top: 133px;
    left: 130px;
 
    &__label {
@@ -204,8 +236,9 @@ input:checked + label {
    }
 }
 
-/* HITS BLOCK */
+/* HITS  */
 .hits-block{
+   pointer-events: none;
    opacity: 0;
    transition: .3s;
    &::before {
@@ -217,15 +250,16 @@ input:checked + label {
 .hits-block-full{
    opacity: 1;
    transition: .3s;
+   pointer-events: all;
 }
 .hits-block__item input + label {
    width: 50px;
 }
 
-/* PLAY */
+/* PLAY block */
 .play{
    display: none;
-
+   transition: 0s;
    &__input {
       display: block;
       width: 100%;
@@ -241,10 +275,9 @@ input:checked + label {
       opacity: 0.5;
 
    }
-   
    &__btn-submit {
       position: absolute;
-      top: 20px;
+      top: 53px;
       right: 20px;
       width:  33px;
       height: 33px;
@@ -268,21 +301,29 @@ input:checked + label {
       border-radius: 5px;
       background: $orange;
       font-size: 20px;
-
    }
    &__btn-hit-show{
       display: block;
    }
+
    &__box {
       width: 100%;
-      height: 120px;
+      height: 200px;
       background: rgba($color: #fff, $alpha: 0.5);
       margin: 10px 0 0;
       box-sizing: border-box;
       padding: 10px;
       overflow-y: scroll;
       border-radius: 5px;
+
+      &_item{
+         margin-top: 10px;
+      }
+      &_item:first-child{
+         margin-top: 0px;
+      }
    }
+
    &__hits-block {
       display: none;
       
@@ -290,9 +331,66 @@ input:checked + label {
          display: block;
       }
    }
-
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
+}
+
+/* win-block */
+.win-bg{
+   display: none;
+   width: 100%;
+   height: 100vh;
+   background: rgba($color: #000, $alpha: 0.8);
+   z-index: 999999;
+   transition: 0s;
+}
+.win-block {
+   display: none;
+   position: absolute;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   z-index: 55555;
+   padding: 20px 0;
+   text-align: center;
+   transition: 0s;
+   
+   &__btn-close{
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $orange;
+      width:  35px;
+      height: 35px;
+      cursor: pointer;
+   }
+   &__btn-close:hover{
+      filter: brightness(0.9);
+      transition: 0.2s;
+   }
+
+
+   &__title {
+      color: #fff;
+      margin-bottom: 5px;
+   }
+
+   &__random-number {
+      font-size: 25px;
+      margin: 5px 0
+   }
+
+   &__attempts {
+      margin: 20px 0 5px;
+   }
+
+   &__text {
+      margin: 20px 0 0;
+   }
+
+   &__btn-restart {
+      margin: 10px auto 0;
+   }
 }

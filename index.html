@@ -4,13 +4,14 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/style.css">
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
    <link href="favicon.ico">
    <title>Игра в числа</title>
 </head>
 <body>
+   <!-- Setting -->
    <div class="container setting" id='setting'>
-      <h1 class="setting__title">Числа</h1>
+      <h1 class="container__title">Числа</h1>
       <p class="setting__subtitle">Выбери сложность</p>
       
       <!-- Difficulty -->
@@ -28,12 +29,6 @@
                 <label for="radio-3">Сложно</label>
             </span>
             <span class="difficulty-block__item">
-               <div class="lock-icon">
-                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                     <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
-                     <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
-                   </svg>
-               </div>
                <input class="difficulty-block__input" type="radio" name="radioname1" id="radio-4"/>
                <label for="radio-4">Эксперт</label>
             </span>            
@@ -84,9 +79,9 @@
    <div class="container play" id="play">
 
       <!-- Header -->
-      <p class="subtitle">Осталось попыток: <span id="NoMoreAttempts">10</span></p>
-      <input class="play__input" type="number" placeholder="Твои предположения" id="playInput">
-      <button class="play__btn-submit" onclick="submit()" type="submit">
+      <p class="setting__subtitle">Осталось попыток: <span id="NoMoreAttempts">10</span></p>
+      <input class="play__input" id="playInput" type="number" placeholder="Твои предположения">
+      <button class="play__btn-submit" id="btn-submit" onclick="submit()" type="submit">
          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
           </svg>
@@ -98,10 +93,38 @@
       
       <!-- Hits -->
       <button class="play__btn-hit" id="getHits" onclick="getHits()">Подсказка (1 шт.)</button>
-      <div class="play__hits-block play__box" id="blockHits">
+      <div class="play__box play__hits-block" id="blockHits">
       </div>
    </div>
 
+   <!-- win block -->
+   <div class="win-bg"></div>
+   <div class="container past-block" id="win-block">
+      <div class="past-block__btn-close" id='past-block-btn-close'>
+         <svg width="35px" height="35px" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+       </svg>
+      </div>
+      <h2 class="past-block__title">Ты отгадал число</h2>
+      <p class="past-block__random-number" id='past-block__random-number'></p>
+      <p class="past-block__attempts">для этого тебе потребовалось 4 попыток и 2 подсказки</p>
+      <p class="past-block__text">Сыграть еще раз?</p>
+      <button class="past-block__btn-restart" type="submit">Играть</button>
+   </div>
+
+   <!-- game over block -->
+   <div class="container past-block" id="game-over-block">
+      <div class="past-block__btn-close" id='past-block-btn-close'>
+         <svg width="35px" height="35px" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+       </svg>
+      </div>
+      <h2 class="past-block__title">Ты не отгадал число</h2>
+      <p class="past-block__random-number"></p>
+      <p class="past-block__text">Сыграть еще раз?</p>
+      <button class="past-block__btn-restart" type="submit"id="btn-play-again">Играть</button>
+      <button class="past-block__btn-restart" type="submit"id="btn-exit">Выход</button>
+   </div>
    <script src="/scripts/jquery-3.5.1.min.js"></script>
    <script src="/scripts/script.js"></script>
 </body>
