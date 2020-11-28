@@ -33,6 +33,7 @@ $orange: #e67928;
 
 }
 .title{
+   color: #fff;
    font-size: 30px;
    text-align: center;
    margin: 0;
@@ -40,7 +41,7 @@ $orange: #e67928;
 .subtitle{
    text-align: left;
    font-size: 20px;
-   padding: 5px 0 5px;
+   padding: 10px 0;
 }
 .subtitle:nth-child(7){
    position: absolute;
@@ -93,7 +94,7 @@ button:disabled{
 /* SETTING BLOCK */
 .setting{
    display: block;
-   height: 250px;
+   height: 272px;
    transition: .2s;
    
    &__btn-start{
@@ -106,7 +107,7 @@ button:disabled{
    }
 }
 .setting-full{
-   height: 300px;
+   height: 328px;
 }
 .setting-hidden{
    display: none;
@@ -148,6 +149,7 @@ button:disabled{
    left: 6px;
    transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
    width: 80px;
+   box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
    transition: .25s ease-in-out;
 }
 input[type=radio] {
@@ -170,29 +172,12 @@ input[type=radio] + label {
 input:checked + label {
    color: #fff;
 }
-/*.lock-icon{
-   display: none;
-   position: absolute;
-   left: 30px;
-   top: -3px;
-   color: #fff;
-   font-size: 20px;
-   z-index: 1111;
-}
-.lock{
-   pointer-events: none;
-} */
 
 
 /* checkbox */
-
-/* *,*:before,*:after {
-   transition: .25s ease-in-out;
-} */
-
 .block-check{
    position: absolute;
-   top: 134px;
+   top: 148px;
    left: 130px;
 
    &__label {
@@ -279,7 +264,7 @@ input:checked + label {
    }
    &__btn-submit {
       position: absolute;
-      top: 53px;
+      top: 63px;
       right: 20px;
       width:  33px;
       height: 33px;
@@ -287,6 +272,7 @@ input:checked + label {
       background: $blue;
       font-size: 25px;
       line-height: 1.6;
+      box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
    }
 
    &__btn-hit {
@@ -354,23 +340,20 @@ input[type=number]::-webkit-outer-spin-button {
    padding: 20px 0;
    text-align: center;
    z-index: 55555;
-   
-   &__title {
-      color: #fff;
-      margin-bottom: 5px;
-   }
 
    &__random-number {
-      font-size: 25px;
-      margin: 5px 0
+      font-weight: 600;
+      font-size: 30px;
+      margin: 10px 0;
+      color: #fff;
    }
 
    &__attempts {
-      margin: 20px 0 5px;
+      //margin: 20px 0 5px;
    }
 
    &__text {
-      margin: 20px 0 0;
+      margin: 10px 0 0;
    }
 
    &__btn {

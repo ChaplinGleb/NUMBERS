@@ -15,7 +15,6 @@ let numOfAttempts = 10;
 let numOfDiff = '1';
 let numOfHits = 1;
 let arr = [1, 2, 3, 4, 5, 6];
-let r = 6;
 let RandomNum, max
 
 
@@ -155,7 +154,7 @@ function start(){
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
    console.log(RandomNum)
    NoMoreAttempts.innerHTML = attempts.innerHTML
-   $('.past-block__random-number').html(RandomNum) 
+   $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
    
 }
 
@@ -196,23 +195,7 @@ function submit(){
                   c = `потребовалось ${a} попыток`
                   break;
             }
-            d =  Number(numOfHits) - r
-            switch(d){
-               case 1:
-                  k = ` ${d} подсказка`
-                  break;
-               case 2:
-               case 3:
-               case 4:
-                  k = ` ${d} подсказки`
-                  break;
-               case 0:
-               case 5:
-               case 6:
-                  k = ` ${d} подсказок`
-                  break;
-            }
-            checkbox.checked ? document.querySelector('.past-block__attempts').innerHTML = `для этого тебе ${c} и ${k}` : document.querySelector('.past-block__attempts').innerHTML = `для этого тебе ${c}`;
+            document.querySelector('.past-block__attempts').innerHTML = `Для этого тебе ${c}`;
             break;
          
          //вводимое число больше максимально возможного загаданного числа
@@ -220,7 +203,7 @@ function submit(){
             a = input.value
             a.replace(/\s/g, '')
             a.toLocaleString('ru-Ru')
-            addAttempt(' - ваше число вне диапазона, попробуйте меньше')
+            addAttempt(` - ваше число вне диапазона. Загаданное число больше 0 и меньше ${max}`)
             break;
          
          //вводимое число больше загаданного
@@ -241,14 +224,13 @@ function getHits(){
    let b, a, num, num1, num2, num3, num4, result = 0
    num = RandomNum
    if(btnHits.innerHTML == "Подсказка (1 шт.)"){
-      --r
+      --num
       btnHits.setAttribute('disabled', 'true')
       btnHits.innerHTML = 'Подсказок нет'
    }else{
-      btnHits.innerHTML = `Подсказка (${--r} шт.)`
+      btnHits.innerHTML = `Подсказка (${--num} шт.)`
    }
    arr.sort(() => Math.random() - 0.6)
-   console.log(arr[result])
 
    function createAndPrepend(inner){
          b = document.createElement("p");
@@ -394,4 +376,3 @@ function surrender(){
    $("#game-over-block").fadeIn(600)
    $(".past-block-bg").fadeIn(600)
 }
-/* console.log(1 + ' - загаданное число в диапазлне' + '\r\n' + 2 + ' - проверка на четность первой цифры' + '\r\n' + 3 + ' - есть ли в числе цифра 14524' + '\r\n' + 4 + ' - проверка на четность числа' + '\r\n' + 5 + ' - количество цифр' + '\r\n' + 6 + ' - сумма всех цифр') */

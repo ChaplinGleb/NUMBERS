@@ -37,6 +37,7 @@
 }
 
 .title {
+  color: #fff;
   font-size: 30px;
   text-align: center;
   margin: 0;
@@ -45,7 +46,7 @@
 .subtitle {
   text-align: left;
   font-size: 20px;
-  padding: 5px 0 5px;
+  padding: 10px 0;
 }
 
 .subtitle:nth-child(7) {
@@ -109,7 +110,7 @@ button:disabled {
 /* SETTING BLOCK */
 .setting {
   display: block;
-  height: 250px;
+  height: 272px;
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
@@ -125,7 +126,7 @@ button:disabled {
 }
 
 .setting-full {
-  height: 300px;
+  height: 328px;
 }
 
 .setting-hidden {
@@ -180,6 +181,8 @@ button:disabled {
       -ms-transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
           transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
   width: 80px;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
   -webkit-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
@@ -212,25 +215,10 @@ input:checked + label {
   color: #fff;
 }
 
-/*.lock-icon{
-   display: none;
-   position: absolute;
-   left: 30px;
-   top: -3px;
-   color: #fff;
-   font-size: 20px;
-   z-index: 1111;
-}
-.lock{
-   pointer-events: none;
-} */
 /* checkbox */
-/* *,*:before,*:after {
-   transition: .25s ease-in-out;
-} */
 .block-check {
   position: absolute;
-  top: 134px;
+  top: 148px;
   left: 130px;
 }
 
@@ -336,7 +324,7 @@ input:checked + label {
 
 .play__btn-submit {
   position: absolute;
-  top: 53px;
+  top: 63px;
   right: 20px;
   width: 33px;
   height: 33px;
@@ -344,6 +332,8 @@ input:checked + label {
   background: #337AB7;
   font-size: 25px;
   line-height: 1.6;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .play__btn-hit {
@@ -419,22 +409,15 @@ input[type=number]::-webkit-outer-spin-button {
   z-index: 55555;
 }
 
-.past-block__title {
-  color: #fff;
-  margin-bottom: 5px;
-}
-
 .past-block__random-number {
-  font-size: 25px;
-  margin: 5px 0;
-}
-
-.past-block__attempts {
-  margin: 20px 0 5px;
+  font-weight: 600;
+  font-size: 30px;
+  margin: 10px 0;
+  color: #fff;
 }
 
 .past-block__text {
-  margin: 20px 0 0;
+  margin: 10px 0 0;
 }
 
 .past-block__btn {
