@@ -34,17 +34,33 @@
           box-sizing: border-box;
   padding: 15px 15px;
   width: 400px;
-  z-index: -11111;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.subtitle {
+  text-align: left;
+  font-size: 20px;
+  padding: 5px 0 5px;
+}
+
+.subtitle:nth-child(7) {
+  position: absolute;
+  bottom: 63px;
 }
 
 button {
   display: block;
-  width: 40%;
+  width: 100%;
   height: 43px;
-  cursor: pointer;
   border-radius: 5px;
   background: #e67928;
   font-size: 20px;
+  cursor: pointer;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
@@ -90,7 +106,7 @@ button:disabled {
   background-clip: padding-box;
 }
 
-/* setting block */
+/* SETTING BLOCK */
 .setting {
   display: block;
   height: 250px;
@@ -99,29 +115,13 @@ button:disabled {
   transition: .2s;
 }
 
-.setting__title {
-  font-size: 30px;
-  text-align: center;
-  margin: 0;
-}
-
-.setting__subtitle {
-  font-size: 20px;
-  padding: 5px 0 5px;
-}
-
-.setting__subtitle:nth-child(7) {
-  position: absolute;
-  bottom: 63px;
-}
-
 .setting__btn-start {
   position: absolute;
   bottom: 15px;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 40%;
+  width: 92.5%;
 }
 
 .setting-full {
@@ -224,13 +224,13 @@ input:checked + label {
 .lock{
    pointer-events: none;
 } */
-/* CHECKBOX */
+/* checkbox */
 /* *,*:before,*:after {
    transition: .25s ease-in-out;
 } */
 .block-check {
   position: absolute;
-  top: 133px;
+  top: 134px;
   left: 130px;
 }
 
@@ -287,7 +287,7 @@ input:checked + label {
   border: 2px solid #e67928;
 }
 
-/* HITS  */
+/* hits  */
 .hits-block {
   pointer-events: none;
   opacity: 0;
@@ -304,7 +304,7 @@ input:checked + label {
   width: 50px;
 }
 
-.hits-block-full {
+.hits-block-show {
   opacity: 1;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -316,7 +316,7 @@ input:checked + label {
   width: 50px;
 }
 
-/* PLAY block */
+/* PLAY BLOCK */
 .play {
   display: none;
 }
@@ -326,16 +326,12 @@ input:checked + label {
   width: 100%;
   height: 43px;
   color: #000;
-  border-radius: 50px;
+  border-radius: 5px;
   font-size: 25px;
   padding: 15px 50px 15px 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #e67928;
-}
-
-.play__input:disabled {
-  opacity: 0.5;
 }
 
 .play__btn-submit {
@@ -344,27 +340,15 @@ input:checked + label {
   right: 20px;
   width: 33px;
   height: 33px;
-  border-radius: 43px;
+  border-radius: 5px;
   background: #337AB7;
   font-size: 25px;
   line-height: 1.6;
-  cursor: pointer;
-}
-
-.play__btn-submit:disabled {
-  background: #fff;
-  opacity: 0.2;
 }
 
 .play__btn-hit {
   display: none;
   margin: 10px auto 0;
-  width: 50%;
-  height: 43px;
-  cursor: pointer;
-  border-radius: 5px;
-  background: #e67928;
-  font-size: 20px;
 }
 
 .play__btn-hit-show {
@@ -399,18 +383,29 @@ input:checked + label {
   display: block;
 }
 
+.play__btn-endGame {
+  display: inline-block;
+  margin: 10px 0 0;
+  width: 48.7%;
+}
+
+.play__btn-endGame:last-child {
+  margin-left: 5px;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-/* win-block */
-.win-bg {
+/* PAST BLOCK */
+.past-block-bg {
+  position: relative;
   display: none;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 999999;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 11111;
 }
 
 .past-block {
@@ -419,27 +414,9 @@ input[type=number]::-webkit-outer-spin-button {
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 55555;
   padding: 20px 0;
   text-align: center;
-}
-
-.past-block__btn-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  color: #e67928;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-}
-
-.past-block__btn-close:hover {
-  -webkit-filter: brightness(0.9);
-          filter: brightness(0.9);
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
+  z-index: 55555;
 }
 
 .past-block__title {
@@ -460,6 +437,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 20px 0 0;
 }
 
-.past-block__btn-restart {
+.past-block__btn {
   margin: 10px auto 0;
+  width: 92.5%;
 }

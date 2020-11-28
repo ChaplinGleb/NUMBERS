@@ -18,26 +18,31 @@ let arr = [1, 2, 3, 4, 5, 6];
 let r = 6;
 let RandomNum, max
 
-/* открытие и закрытие подсказок + плавное появление 2 блока */
+
 $(function(){
    let j = 0
+   
+   //показать/скрыть блок подсказок
    $('#checkbox1').click(function(){
       if (j == 0){
+         //показать блок подсказок
          $('.setting').toggleClass('setting-full')
          setTimeout(function(){
-            $('#hits-block').toggleClass('hits-block-full')
+            $('#hits-block').toggleClass('hits-block-show')
          }, 300)
          $('#getHits').toggleClass('play__btn-hit-show')
          $('#blockHits').toggleClass('play__hits-block_show')
          attempts.innerHTML = numOfAttempts - numOfHits
          j = 1
       }else{
-         $('#hits-block').toggleClass('hits-block-full')
+         //скрыть блок подсказок
+         $('#hits-block').toggleClass('hits-block-show')
          setTimeout(function(){
             $('.setting').toggleClass('setting-full')
          }, 300)
          $('#getHits').toggleClass('play__btn-hit-show')
          $('#blockHits').toggleClass('play__hits-block_show')
+         //возврат попыток без подсказок
          switch(numOfDiff){
             case '1':
                attempts.innerHTML = 10
@@ -55,18 +60,17 @@ $(function(){
          j = 0
       }
    })
-   $("#playInput").keyup(function(event) {
+
+   // кнопка ENTER
+   $('#playInput').keyup(function(event){
       if (event.keyCode === 13) {
           $("#btn-submit").click();
       }
    });
-   $("#win-btn-close").click(function(){
-      $(".win-block").fadeOut(600)
-      $(".win-bg").fadeOut(600)
-   })
-   $(".win-bg").click(function(){
-      $("#win-block").fadeOut(600)
-      $(".win-bg").fadeOut(600)
+
+   //игрыть заново
+   $('.restart').click(function(){
+      window.location.reload()
    })
 })
 
@@ -133,6 +137,7 @@ function start(){
       $('#play').fadeIn()
    }, 500)
    let min = 1
+   
    switch(numOfDiff){
       case '1':
          max = 100
@@ -150,6 +155,8 @@ function start(){
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
    console.log(RandomNum)
    NoMoreAttempts.innerHTML = attempts.innerHTML
+   $('.past-block__random-number').html(RandomNum) 
+   
 }
 
 function submit(){
@@ -162,34 +169,21 @@ function submit(){
       document.querySelector('.play__box').prepend(b)
    }
 
+   //сравнение вводимого с загаданным числом
    if (input.value != '' && input.value != ' '){ 
+      NoMoreAttempts.innerHTML -= 1
       switch(true){
-         case NoMoreAttempts.innerHTML == '1':
-            $("#game-over-block").fadeIn()
-            $(".win-bg").fadeIn()
-            a = document.querySelector('.play__btn-submit')
-            a.setAttribute('disabled', 'true')
-            input.setAttribute('disabled', 'true')
-            btnHits.setAttribute('disabled', 'true')
+         
+         //не угадал
+         case NoMoreAttempts.innerHTML == '0':
+            $("#game-over-block").fadeIn(600)
+            $(".past-block-bg").fadeIn(600)
             break;
-         case input.value > max:
-            a = input.value
-            a.replace(/\s/g, '')
-            a.toLocaleString('ru-Ru')
-            addAttempt(' - ваше число вне диапазона, попробуйте меньше')
-            break;
-         case input.value > RandomNum:
-            addAttempt(' - загаданное число меньше')
-            NoMoreAttempts.innerHTML -= 1
-            break;
-         case input.value < RandomNum:
-            addAttempt(' - загаданное число больше')
-            NoMoreAttempts.innerHTML -= 1
-            break;
+         
+         //угадал
          case input.value == RandomNum:
-            $("#win-block").fadeIn()
-            $(".win-bg").fadeIn()
-            document.querySelector('.past-block__random-number').innerHTML = RandomNum
+            $("#win-block").fadeIn(600)
+            $(".past-block-bg").fadeIn(600)
             a = attempts.innerHTML - NoMoreAttempts.innerHTML 
             switch(true){
                case a == 1 || a == 21:
@@ -220,10 +214,29 @@ function submit(){
             }
             checkbox.checked ? document.querySelector('.past-block__attempts').innerHTML = `для этого тебе ${c} и ${k}` : document.querySelector('.past-block__attempts').innerHTML = `для этого тебе ${c}`;
             break;
+         
+         //вводимое число больше максимально возможного загаданного числа
+         case input.value > max:
+            a = input.value
+            a.replace(/\s/g, '')
+            a.toLocaleString('ru-Ru')
+            addAttempt(' - ваше число вне диапазона, попробуйте меньше')
+            break;
+         
+         //вводимое число больше загаданного
+         case input.value > RandomNum:
+            addAttempt(' - загаданное число меньше')
+            break;
+         
+         //вводимое число меньше загаданного
+         case input.value < RandomNum:
+            addAttempt(' - загаданное число больше')
+            break;
       }
       input.value = ''
    }
 }
+
 function getHits(){
    let b, a, num, num1, num2, num3, num4, result = 0
    num = RandomNum
@@ -236,13 +249,6 @@ function getHits(){
    }
    arr.sort(() => Math.random() - 0.6)
    console.log(arr[result])
-   
-   //1 - загаданное число в диапазлне между ___ и ____
-   //2 - проверка на четность первой цифры
-   //3 - есть ли в числе цифра 14524
-   //4 - проверка на четность числа
-   //5 - количество цифр
-   //6 - сумма всех цифр
 
    function createAndPrepend(inner){
          b = document.createElement("p");
@@ -254,8 +260,8 @@ function getHits(){
    }
    
    switch(arr[result]){
+      //загаданное число в диапазлне
       case 1:
-         //загаданное число в диапазлне
          function range(max){
             num1 =  Math.floor(Math.random() * (max - 1)) + 1
             num2 = RandomNum - num1
@@ -284,14 +290,16 @@ function getHits(){
          }
          createAndPrepend(a)
          break;
+      
+      //проверка на четность первой цифры
       case 2:
-         //проверка на четность первой цифры
          a = String(RandomNum);
          a[0] % 2 == 0 ? a = 'четная' : a = 'нечетная';
          createAndPrepend(`Первая цифра ${a}`)
          break;
+      
+      //есть ли в числе цифра 14524
       case 3:
-         //есть ли в числе цифра 14524
          function Random() {
             let r
             r = Math.floor(Math.random() * (9 - 0 + 1)) + 0
@@ -343,13 +351,15 @@ function getHits(){
                break;
          }
          break;
+      
+      //проверка на четность числа
       case 4:
-         //проверка на четность числа
          RandomNum % 2 == 0 ? a = 'четное' : a = 'нечетное';
          createAndPrepend(`Загаданное число ${a}`)
          break;
+      
+      //Колличество цифр в числе
       case 5:
-         //Колличество цифр в числе
          switch(String(RandomNum).length){
             case 1:
                a = 'цифра'
@@ -366,8 +376,9 @@ function getHits(){
          }
          createAndPrepend(`В числе ${String(RandomNum).length} ${a}`)
          break;
+      
+      //сумма всех цифр
       case 6:
-         //сумма всех цифр
          a = 0;
          while (num) {
             a += num % 10;
@@ -376,5 +387,10 @@ function getHits(){
          createAndPrepend(`Сумма цифр в числе равна ${a}`)
          break;
    }
+}
+
+function surrender(){
+   NoMoreAttempts.innerHTML = 0
+   submit()
 }
 /* console.log(1 + ' - загаданное число в диапазлне' + '\r\n' + 2 + ' - проверка на четность первой цифры' + '\r\n' + 3 + ' - есть ли в числе цифра 14524' + '\r\n' + 4 + ' - проверка на четность числа' + '\r\n' + 5 + ' - количество цифр' + '\r\n' + 6 + ' - сумма всех цифр') */
