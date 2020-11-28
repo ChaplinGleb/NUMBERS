@@ -391,6 +391,7 @@ function getHits(){
 
 function surrender(){
    NoMoreAttempts.innerHTML = 0
-   submit()
+   $("#game-over-block").fadeIn(600)
+   $(".past-block-bg").fadeIn(600)
 }
 /* console.log(1 + ' - загаданное число в диапазлне' + '\r\n' + 2 + ' - проверка на четность первой цифры' + '\r\n' + 3 + ' - есть ли в числе цифра 14524' + '\r\n' + 4 + ' - проверка на четность числа' + '\r\n' + 5 + ' - количество цифр' + '\r\n' + 6 + ' - сумма всех цифр') */
