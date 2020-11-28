@@ -9,7 +9,7 @@ $orange: #e67928;
 В числе есть цифра 342
 Число делиться на 
 */
-
+ 
 *{
    padding: 0;
    margin: 0;
@@ -41,6 +41,7 @@ button{
    border-radius: 5px;
    background: $orange;
    font-size: 20px;
+   transition: 0.2s;
 }
 button:hover{
    filter: brightness(0.9);
@@ -80,7 +81,7 @@ button:disabled{
 .setting{
    display: block;
    height: 250px;
-   transition: 0s;
+   transition: .2s;
    
    &__title{
       font-size: 30px;
@@ -147,6 +148,7 @@ button:disabled{
    left: 6px;
    transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
    width: 80px;
+   transition: .25s ease-in-out;
 }
 input[type=radio] {
    opacity: 0;
@@ -183,9 +185,11 @@ input:checked + label {
 
 
 /* CHECKBOX */
-*,*:before,*:after {
+
+/* *,*:before,*:after {
    transition: .25s ease-in-out;
-}
+} */
+
 .block-check{
    position: absolute;
    top: 133px;
@@ -200,6 +204,7 @@ input:checked + label {
       border-radius: 50px;
       border: 2px solid #dddddd;
       cursor: pointer;
+      transition: .25s ease-in-out;
 
       &:before {
       content:'';
@@ -212,6 +217,7 @@ input:checked + label {
       width:  13px;
       background: white;
       border: 2px solid #dddddd;
+      transition: .25s ease-in-out;
       }
    }
    &__input {
@@ -259,7 +265,7 @@ input:checked + label {
 /* PLAY block */
 .play{
    display: none;
-   transition: 0s;
+
    &__input {
       display: block;
       width: 100%;
@@ -344,9 +350,8 @@ input[type=number]::-webkit-outer-spin-button {
    height: 100vh;
    background: rgba($color: #000, $alpha: 0.8);
    z-index: 999999;
-   transition: 0s;
 }
-.win-block {
+.past-block {
    display: none;
    position: absolute;
    left: 0;
@@ -355,7 +360,6 @@ input[type=number]::-webkit-outer-spin-button {
    z-index: 55555;
    padding: 20px 0;
    text-align: center;
-   transition: 0s;
    
    &__btn-close{
       position: absolute;
