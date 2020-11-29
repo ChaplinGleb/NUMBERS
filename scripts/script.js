@@ -223,6 +223,7 @@ function submit(){
 
 function getHits(){
    let b, a, num, num1, num2, num3, num4, result = 0
+   num = RandomNum
    if(btnHits.innerHTML == "Подсказка (1 шт.)"){
       --r
       btnHits.setAttribute('disabled', 'true')
