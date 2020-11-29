@@ -175,6 +175,7 @@ function submit(){
          
          //не угадал
          case NoMoreAttempts.innerHTML == '0':
+            input.setAttribute('disabled', 'true')
             $("#game-over-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
             break;
