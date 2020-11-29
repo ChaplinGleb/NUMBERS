@@ -45,7 +45,7 @@ $orange: #e67928;
 }
 .subtitle:nth-child(7){
    position: absolute;
-   bottom: 63px;
+   bottom: 62px;
 }
 button{
    display: block;
@@ -286,12 +286,15 @@ input:checked + label {
    &__box {
       width: 100%;
       height: 200px;
-      background: rgba($color: #fff, $alpha: 0.5);
+      background: #99bddb;
       margin: 10px 0 0;
       box-sizing: border-box;
       padding: 10px;
       overflow-y: scroll;
+      overflow-x: hidden;
       border-radius: 5px;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
 
       &_item{
          margin-top: 10px;
