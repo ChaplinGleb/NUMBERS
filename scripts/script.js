@@ -159,7 +159,7 @@ function start(){
 }
 
 function submit(){
-   let b, a, c, d, k;
+   let b, a, c;
 
    function addAttempt(inner2){
       b = document.createElement("p");
@@ -222,13 +222,12 @@ function submit(){
 
 function getHits(){
    let b, a, num, num1, num2, num3, num4, result = 0
-   num = RandomNum
    if(btnHits.innerHTML == "Подсказка (1 шт.)"){
-      --num
+      --r
       btnHits.setAttribute('disabled', 'true')
       btnHits.innerHTML = 'Подсказок нет'
    }else{
-      btnHits.innerHTML = `Подсказка (${--num} шт.)`
+      btnHits.innerHTML = `Подсказка (${--r} шт.)`
    }
    arr.sort(() => Math.random() - 0.6)
 
