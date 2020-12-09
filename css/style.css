@@ -41,7 +41,7 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 15px 15px;
+  padding: 10px 10px;
   width: 400px;
 }
 
@@ -56,11 +56,16 @@ body {
   text-align: left;
   font-size: 20px;
   padding: 10px 0;
+  color: #fff;
+}
+
+.subtitle:nth-child(1) {
+  padding: 0 0 10px;
 }
 
 .subtitle:nth-child(7) {
   position: absolute;
-  bottom: 62px;
+  bottom: 58px;
 }
 
 button {
@@ -123,7 +128,7 @@ button:disabled {
   right: 0;
   top: calc(50% - 136px);
   display: block;
-  height: 272px;
+  height: 261px;
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
@@ -135,11 +140,11 @@ button:disabled {
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 92.5%;
+  width: 95%;
 }
 
 .setting-full {
-  height: 328px;
+  height: 317px;
 }
 
 .setting-hidden {
@@ -190,9 +195,9 @@ button:disabled {
   position: absolute;
   top: 5px;
   left: 6px;
-  -webkit-transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
-      -ms-transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
-          transform: translateX(calc((100% + 12.5px) * (var(--options-active) - 1)));
+  -webkit-transform: translateX(calc((100% + 15.5px) * (var(--options-active) - 1)));
+      -ms-transform: translateX(calc((100% + 15.5px) * (var(--options-active) - 1)));
+          transform: translateX(calc((100% + 15.5px) * (var(--options-active) - 1)));
   width: 80px;
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
@@ -231,7 +236,7 @@ input:checked + label {
 /* checkbox */
 .block-check {
   position: absolute;
-  top: 148px;
+  top: 144px;
   left: 130px;
 }
 
@@ -298,9 +303,9 @@ input:checked + label {
 }
 
 .hits-block::before {
-  -webkit-transform: translateX(calc((100% + 11.6px) * (var(--options-active) - 1)));
-      -ms-transform: translateX(calc((100% + 11.6px) * (var(--options-active) - 1)));
-          transform: translateX(calc((100% + 11.6px) * (var(--options-active) - 1)));
+  -webkit-transform: translateX(calc((100% + 13.6px) * (var(--options-active) - 1)));
+      -ms-transform: translateX(calc((100% + 13.6px) * (var(--options-active) - 1)));
+          transform: translateX(calc((100% + 13.6px) * (var(--options-active) - 1)));
   left: 5.8px;
   width: 50px;
 }
@@ -344,8 +349,8 @@ input:checked + label {
 
 .play__btn-submit {
   position: absolute;
-  top: 63px;
-  right: 20px;
+  top: 48px;
+  right: 15px;
   width: 33px;
   height: 33px;
   border-radius: 5px;
