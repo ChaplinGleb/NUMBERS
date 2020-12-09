@@ -17,9 +17,7 @@ $orange: #e67928;
    border: none;
    outline: none;
 }
-html, body{
-    height: 100%;
-}
+
 body{
     width: 100%;
     height: 100%;
@@ -29,7 +27,7 @@ body{
     left: 0;
     right: 0;
     margin: 0 auto;
-    border: 2px solid red;
+    //border: 2px solid red;
     height: 100%;
     width: 430px;
     box-sizing: border-box;
