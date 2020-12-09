@@ -17,24 +17,31 @@ $orange: #e67928;
    border: none;
    outline: none;
 }
+html, body{
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
 .wrapper{
     position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
     border: 2px solid red;
-    min-height: 100%;
+    height: 100%;
     width: 430px;
     box-sizing: border-box;
 }
 .container{
-   background: $blue;
-   border-radius: 5px;
-   font-family: 'Poppins', sans-serif;
-   margin: 0 auto;
-   box-sizing: border-box;
-   padding: 15px 15px;
-   width: 400px;
+    margin: 0 auto;
+    background: $blue;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 15px 15px;
+    width: 400px;
 }
 .title{
    color: #fff;
@@ -361,14 +368,22 @@ input[type=number]::-webkit-outer-spin-button {
 
    &__random-number {
       font-weight: 600;
-      font-size: 30px;
+      font-size: 40px;
       margin: 10px 0;
-      color: #fff;
+   }
+   &__random-number-win {
+      font-weight: 600;
+      font-size: 40px;
+      margin: 10px 0;
+      color: #6ded3d;
+   }
+   &__random-number-lose {
+      font-weight: 600;
+      font-size: 40px;
+      margin: 10px 0;
+      color: #ee3c40;
    }
 
-   &__attempts {
-      //margin: 20px 0 5px;
-   }
 
    &__text {
       margin: 10px 0 0;

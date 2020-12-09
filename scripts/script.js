@@ -172,18 +172,19 @@ function submit(){
    if (input.value != '' && input.value != ' '){ 
       NoMoreAttempts.innerHTML -= 1
       switch(true){
-         
          //не угадал
          case NoMoreAttempts.innerHTML == '0':
             input.setAttribute('disabled', 'true')
             $("#game-over-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
+            $(".past-block__random-number").toggleClass("past-block__random-number-lose")
             break;
          
          //угадал
          case input.value == RandomNum:
             $("#win-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
+            $(".past-block__random-number").toggleClass("past-block__random-number-win")
             a = attempts.innerHTML - NoMoreAttempts.innerHTML 
             switch(true){
                case a == 1 || a == 21:
@@ -376,4 +377,5 @@ function surrender(){
    NoMoreAttempts.innerHTML = 0
    $("#game-over-block").fadeIn(600)
    $(".past-block-bg").fadeIn(600)
+   $(".past-block__random-number").toggleClass("past-block__random-number-lose")
 }
