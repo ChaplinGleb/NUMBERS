@@ -348,14 +348,16 @@ input[type=number]::-webkit-outer-spin-button {
    z-index: 11111;
 }
 .past-block {
-   display: none;
-   position: absolute;
-   left: 0;
-   right: 0;
-   margin: 0 auto;
-   padding: 20px 0;
-   text-align: center;
-   z-index: 55555;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 55555;
 
    &__random-number {
       font-weight: 600;
