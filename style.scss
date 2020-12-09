@@ -17,12 +17,17 @@ $orange: #e67928;
    border: none;
    outline: none;
 }
+.wrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border: 2px solid red;
+    min-height: 100%;
+    width: 430px;
+    box-sizing: border-box;
+}
 .container{
-   position: absolute;
-   left: 0;
-   right: 0;
-   top: 50%;
-   transform: translate(0, -50%);
    background: $blue;
    border-radius: 5px;
    font-family: 'Poppins', sans-serif;
@@ -30,7 +35,6 @@ $orange: #e67928;
    box-sizing: border-box;
    padding: 15px 15px;
    width: 400px;
-
 }
 .title{
    color: #fff;
@@ -93,9 +97,13 @@ button:disabled{
 
 /* SETTING BLOCK */
 .setting{
-   display: block;
-   height: 272px;
-   transition: .2s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 136px);
+    display: block;
+    height: 272px;
+    transition: .2s;
    
    &__btn-start{
       position: absolute;
@@ -249,7 +257,12 @@ input:checked + label {
 
 /* PLAY BLOCK */
 .play{
-   display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: none;
 
    &__input {
       display: block;

@@ -15,7 +15,7 @@ let numOfAttempts = 10;
 let numOfDiff = '1';
 let numOfHits = 1;
 let arr = [1, 2, 3, 4, 5, 6];
-let RandomNum, max
+let RandomNum, max, r
 
 
 $(function(){

@@ -18,14 +18,19 @@
   outline: none;
 }
 
-.container {
+.wrapper {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+  margin: 0 auto;
+  border: 2px solid red;
+  min-height: 100%;
+  width: 430px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
   background: #337AB7;
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
@@ -109,6 +114,10 @@ button:disabled {
 
 /* SETTING BLOCK */
 .setting {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 136px);
   display: block;
   height: 272px;
   -webkit-transition: .2s;
@@ -306,6 +315,13 @@ input:checked + label {
 
 /* PLAY BLOCK */
 .play {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   display: none;
 }
 
