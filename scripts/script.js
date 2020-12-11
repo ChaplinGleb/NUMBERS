@@ -19,8 +19,14 @@ let RandomNum, max, r
 
 
 $(function(){
-   let j = 0
+   setTimeout(function(){
+      $('.setting').animate({
+         opacity: 1,
+      }, 500)
+   }, 300)
    
+
+   let j = 0
    //показать/скрыть блок подсказок
    $('#checkbox1').click(function(){
       if (j == 0){
@@ -69,7 +75,12 @@ $(function(){
 
    //игрыть заново
    $('.restart').click(function(){
-      window.location.reload()
+      $('#play').fadeOut()
+      $('.past-block').fadeOut()
+      $('.past-block-bg').fadeOut()
+      setTimeout(function(){
+         window.location.reload()
+      }, 350)
    })
 })
 
@@ -148,7 +159,7 @@ function start(){
          max = 10000
          break;
       case '4':
-         max = 100000
+         max = 1000000
          break;
    }
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
