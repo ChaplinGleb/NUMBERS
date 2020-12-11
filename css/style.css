@@ -46,7 +46,7 @@ body {
 }
 
 .title {
-  color: #fff;
+  color: grey;
   font-size: 30px;
   text-align: center;
   margin: 0;
@@ -56,7 +56,7 @@ body {
   text-align: left;
   font-size: 20px;
   padding: 10px 0;
-  color: #fff;
+  color: grey;
 }
 
 .subtitle:nth-child(1) {
@@ -65,7 +65,7 @@ body {
 
 .subtitle:nth-child(7) {
   position: absolute;
-  bottom: 58px;
+  bottom: 53px;
 }
 
 button {
@@ -74,6 +74,7 @@ button {
   height: 43px;
   border-radius: 5px;
   background: #e67928;
+  color: green;
   font-size: 20px;
   cursor: pointer;
   -webkit-transition: 0.2s;
@@ -128,7 +129,7 @@ button:disabled {
   right: 0;
   top: calc(50% - 136px);
   display: block;
-  height: 261px;
+  height: 255px;
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
@@ -136,7 +137,7 @@ button:disabled {
 
 .setting__btn-start {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -144,7 +145,7 @@ button:disabled {
 }
 
 .setting-full {
-  height: 317px;
+  height: 312px;
 }
 
 .setting-hidden {
@@ -189,7 +190,7 @@ button:disabled {
   z-index: 1;
   background: #337AB7;
   border-radius: 5px;
-  color: #000;
+  color: green;
   display: block;
   height: 33px;
   position: absolute;
@@ -230,7 +231,7 @@ input[type=radio] + label {
 }
 
 input:checked + label {
-  color: #fff;
+  color: green;
 }
 
 /* checkbox */
@@ -338,7 +339,7 @@ input:checked + label {
   display: block;
   width: 100%;
   height: 43px;
-  color: #000;
+  color: #337AB7;
   border-radius: 5px;
   font-size: 25px;
   padding: 15px 50px 15px 15px;
