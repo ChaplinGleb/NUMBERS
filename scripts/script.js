@@ -234,7 +234,7 @@ function submit(){
 }
 
 function getHits(){
-   let b, a, num, num1, num2, num3, num4, result = 0
+   let b, a, num, num1, num2, num3, num4, num5, result = 0
    num = RandomNum
    if(btnHits.innerHTML == "Подсказка (1 шт.)"){
       --r
@@ -255,7 +255,7 @@ function getHits(){
    }
    
    switch(arr[result]){
-      //загаданное число в диапазлне
+      //загаданное число больше N и меньше N 
       case 1:
          function range(max){
             num1 =  Math.floor(Math.random() * (max - 1)) + 1
@@ -282,11 +282,14 @@ function getHits(){
             case 5:
                range(10000)
                break;
+            case 6:
+               range(100000)
+               break;
          }
          createAndPrepend(a)
          break;
       
-      //проверка на четность первой цифры
+      //первая цифра четная/не четная
       case 2:
          a = String(RandomNum);
          a[0] % 2 == 0 ? a = 'четная' : a = 'нечетная';
@@ -344,16 +347,36 @@ function getHits(){
                }
                createAndPrepend(`В загаданном числе ${num1}, ${num2}, ${num3} и ${num4}`)
                break;
+            case 6:
+               num1 = Random()
+               num2 = Random()
+               while(num2 == num1){
+                  num2 = Random()
+               }
+               num3 = Random()
+               while(num3 == num2 || num3 == num1){
+                  num3 = Random()
+               }
+               num4 = Random()
+               while(num4 == num3 || num4 == num2 || num4 == num1){
+                  num4 = Random()
+               }
+               num5 = Random()
+               while(num5 == num4 || num5 == num3 || num5 == num2 || num5 == num1){
+                  num5 = Random()
+               }
+               createAndPrepend(`В загаданном числе ${num1}, ${num2}, ${num3} и ${num4}, ${num5}`)
+               break;
          }
          break;
       
-      //проверка на четность числа
+      //загаданное число четная/не четная
       case 4:
          RandomNum % 2 == 0 ? a = 'четное' : a = 'нечетное';
          createAndPrepend(`Загаданное число ${a}`)
          break;
       
-      //Колличество цифр в числе
+      //В числе N цифр
       case 5:
          switch(String(RandomNum).length){
             case 1:
@@ -372,7 +395,7 @@ function getHits(){
          createAndPrepend(`В числе ${String(RandomNum).length} ${a}`)
          break;
       
-      //сумма всех цифр
+      //сумма цифр в числе равна
       case 6:
          a = 0;
          while (num) {
