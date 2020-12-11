@@ -21,27 +21,27 @@ $text_btn: green;
 }
 
 body{
-    width: 100%;
-    height: 100%;
+   width: 100%;
+   height: 100%;
 }
 .wrapper{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    //border: 2px solid red;
-    height: 100%;
-    width: 430px;
-    box-sizing: border-box;
+   position: absolute;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   //border: 2px solid red;
+   height: 100%;
+   width: 430px;
+   box-sizing: border-box;
 }
 .container{
-    margin: 0 auto;
-    background: $blue;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    padding: 10px 10px;
-    width: 400px;
+   margin: 0 auto;
+   background: $blue;
+   border-radius: 5px;
+   font-family: 'Poppins', sans-serif;
+   box-sizing: border-box;
+   padding: 10px 10px;
+   width: 400px;
 }
 .title{
    color: $text_subtitle;
@@ -110,13 +110,13 @@ button:disabled{
 
 /* SETTING BLOCK */
 .setting{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: calc(50% - 136px);
-    display: block;
-    height: 255px;
-    transition: .2s;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: calc(50% - 136px);
+   display: block;
+   height: 255px;
+   transition: .2s;
    
    &__btn-start{
       position: absolute;
@@ -361,16 +361,16 @@ input[type=number]::-webkit-outer-spin-button {
    z-index: 11111;
 }
 .past-block {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    margin: 0 auto;
-    padding: 20px 0;
-    text-align: center;
-    z-index: 55555;
+   display: none;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 50%;
+   transform: translate(0, -50%);
+   margin: 0 auto;
+   padding: 20px 0;
+   text-align: center;
+   z-index: 55555;
 
    &__random-number {
       font-weight: 600;
