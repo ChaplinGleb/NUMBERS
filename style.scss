@@ -1,4 +1,5 @@
-$blue: #337AB7;
+//$blue: #337AB7;
+$blue: green;
 $orange: #e67928;
 $text_subtitle: white;
 $text_btn: black;
@@ -46,7 +47,6 @@ body{
    color: $text_subtitle;
    font-size: 30px;
    text-align: center;
-   margin: 10px 0 0;
 }
 .subtitle{
    text-align: left;
