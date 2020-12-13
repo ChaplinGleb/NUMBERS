@@ -114,7 +114,7 @@ button:disabled{
    left: 0;
    right: 0;
    top: calc(50% - 136px);
-   height: 265px;
+   height: 255px;
    transition: .2s;
    opacity: 0;
    
@@ -193,7 +193,7 @@ input:checked + label {
 /* checkbox */
 .block-check{
    position: absolute;
-   top: 154px;
+   top: 144px;
    left: 130px;
 
    &__label {
