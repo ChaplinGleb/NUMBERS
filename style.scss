@@ -1,8 +1,5 @@
-//$blue: #337AB7;
-$blue: green;
 $orange: rgba(#053F7D,0.7);
-$text_subtitle: white;
-$text_btn: white;
+$text: white;
 
 /* 
 Четное / нечетное
@@ -43,9 +40,10 @@ body{
    box-sizing: border-box;
    padding: 10px 10px;
    width: 400px;
+   box-shadow: 0 9px 21px rgba($color: #000, $alpha: 0.4);
 }
 .title{
-   color: $text_subtitle;
+   color: $text;
    font-size: 30px;
    text-align: center;
 }
@@ -53,7 +51,7 @@ body{
    text-align: left;
    font-size: 20px;
    padding: 10px 0;
-   color: $text_subtitle;
+   color: $text;
 }
 .subtitle:nth-child(1){
    padding: 0 0 10px;
@@ -67,15 +65,15 @@ button{
    width: 100%;
    height: 43px;
    border-radius: 5px;
-   background: rgba(255, 255, 255, 0);
+   background: rgba(255, 255, 255, 0.2);
    backdrop-filter: blur(3px);
-   color: $text_btn;
+   color: $text;
    font-size: 20px;
    cursor: pointer;
    transition: 0.2s;
 }
 button:hover{
-   background: rgba(255, 255, 255, 0.2);
+   filter: brightness(1.2);
    transition: 0.2s;
 }
 button:disabled{
@@ -91,17 +89,17 @@ button:disabled{
    border: 3px solid transparent;
 }
 ::-webkit-scrollbar-thumb {
-   background: $orange;
+   background: rgba(255, 255, 255,0.3);
    border-radius: 20px;
    margin-right: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-   background: #d76a1a;
+   background: rgba(255, 255, 255, 0.6);
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb, 
 ::-webkit-scrollbar-thumb:hover {
-   border: 5px solid rgba(255,255,255,0);
+   border: 5px solid rgba(255, 255, 255,0);
    background-clip: padding-box;
 }
 
@@ -151,7 +149,7 @@ button:disabled{
       transition: 0.2s;
    }
    &__item:hover{
-      background: rgba($color: #fff, $alpha: 0.4);
+      background: rgba($color: #fff, $alpha: 0.2);
       transition: 0.2s;
    }
 }
@@ -162,7 +160,8 @@ button:disabled{
    position: absolute;
    top: 5px;
    left: 7.5px;
-   background: rgba(#053F7D,0.7);
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(3px);
    border-radius: 5px;
    height: 33px;
    width: 80px;
@@ -186,9 +185,6 @@ input[type=radio] + label {
    transition: color .4s ease;
    cursor: pointer;
    z-index: 111;
-}
-input:checked + label {
-   color: #fff;
 }
 
 
@@ -241,8 +237,8 @@ input:checked + label {
    opacity: 0;
    transition: .3s;
    &::before {
-      transform: translateX(calc((100% + 13.6px) * (var(--options-active) - 1)));
-      left: 5.8px;
+      transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
+      left: 6px;
       width: 50px;
    }
 }
@@ -268,12 +264,13 @@ input:checked + label {
       display: block;
       width: 100%;
       height: 43px;
-      color: black;
+      color: white;
       border-radius: 5px;
       font-size: 25px;
       padding: 15px 50px 15px 15px;
       box-sizing: border-box;
-      background: $orange;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
    }
    &__btn-submit {
       position: absolute;
@@ -282,10 +279,10 @@ input:checked + label {
       width:  33px;
       height: 33px;
       border-radius: 5px;
-      background: $blue;
+      backdrop-filter: blur(0px);
       font-size: 25px;
       line-height: 1.6;
-      box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
+      //box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
    }
 
    &__btn-hit {
@@ -299,15 +296,17 @@ input:checked + label {
    &__box {
       width: 100%;
       height: 200px;
-      background: #99bddb;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
       margin: 10px 0 0;
       box-sizing: border-box;
-      padding: 10px;
+      padding: 0 10px;
       overflow-y: scroll;
       overflow-x: hidden;
       border-radius: 5px;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      color: rgba($color: #fff, $alpha: 0.9);
 
       &_item{
          margin-top: 10px;
@@ -336,6 +335,9 @@ input:checked + label {
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
+}
+input::placeholder{
+   color: rgba(255, 255, 255, 0.5);
 }
 
 /* PAST BLOCK */
