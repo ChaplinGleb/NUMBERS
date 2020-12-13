@@ -244,11 +244,10 @@ input:checked + label {
 .block-check__label {
   position: relative;
   display: block;
-  background: #f3f3f3;
   height: 13px;
   width: 27px;
   border-radius: 50px;
-  border: 2px solid #dddddd;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   -webkit-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
@@ -259,13 +258,12 @@ input:checked + label {
   content: '';
   display: block;
   position: absolute;
-  top: -2px;
-  left: -2px;
+  top: 0px;
+  left: 0px;
   border-radius: 50px;
-  height: 13px;
-  width: 13px;
-  background: white;
-  border: 2px solid #dddddd;
+  height: 9px;
+  width: 9px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   -webkit-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
@@ -276,22 +274,10 @@ input:checked + label {
   opacity: 0;
 }
 
-.block-check__input:checked + .block-check__label {
-  background: rgba(5, 63, 125, 0.7);
-  border: 2px solid rgba(5, 63, 125, 0.7);
-}
-
-.block-check__input:checked + .block-check__label .on {
-  float: right;
-}
-
-.block-check__input:checked + .block-check__label .off {
-  right: 0px;
-}
-
 .block-check__input:checked + .block-check__label:before {
-  left: 12px;
-  border: 2px solid rgba(5, 63, 125, 0.7);
+  left: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 
 /* hits  */
