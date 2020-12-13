@@ -2,16 +2,6 @@ $text: white;
 $Regular: 400;
 $Bold: 700;
 
-
-/* 
-Четное / нечетное
-Сумма всех цифр в числе
-Произведение всех цифр в числе
-Первое число Четное / нечетное
-В числе есть цифра 342
-Число делиться на 
-*/
- 
 *{
    padding: 0;
    margin: 0;
@@ -49,11 +39,12 @@ body{
 .title{
    font-size: 30px;
    text-align: center;
+   line-height: 1;
 }
 .subtitle{
    text-align: left;
    font-size: 20px;
-   padding: 10px 0;
+   padding: 7px 0;
 }
 .subtitle:nth-child(1){
    padding: 0 0 10px;
@@ -126,7 +117,7 @@ button:disabled{
    }
 }
 .setting-full{
-   height: 322px;
+   height: 312px;
 }
 .setting-hidden{
    display: none;
@@ -166,7 +157,6 @@ button:disabled{
    height: 33px;
    width: 80px;
    transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
-   //box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
    transition: .25s ease-in-out;
 }
 input[type=radio] {
@@ -177,6 +167,7 @@ input[type=radio] + label {
    border-radius: 5px;
    flex: 1 1 100%;
    font-family: 'Poppins', sans-serif;
+   font-weight: $Regular;
    font-size: 15px;
    margin: 0;
    width: 80px;
@@ -191,7 +182,7 @@ input[type=radio] + label {
 /* checkbox */
 .block-check{
    position: absolute;
-   top: 144px;
+   top: 142px;
    left: 130px;
 
    &__label {
@@ -222,9 +213,12 @@ input[type=radio] + label {
       opacity: 0;
 
       &:checked {
-      + .block-check__label {         
+      + .block-check__label {    
+         border: 2px solid rgba(255, 255, 255, 1);
+
          &:before {
-            left: 14px;
+            left: 14.5px;
+            background: rgba(255, 255, 255, 1);
          }
       }
       }
@@ -274,7 +268,7 @@ input[type=radio] + label {
    }
    &__btn-submit {
       position: absolute;
-      top: 48px;
+      top: 55px;
       right: 15px;
       width:  33px;
       height: 33px;
