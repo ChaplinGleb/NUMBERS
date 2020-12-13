@@ -195,7 +195,6 @@ function submit(){
          case input.value == RandomNum:
             $("#win-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
-            $(".past-block__random-number").toggleClass("past-block__random-number-win")
             a = attempts.innerHTML - NoMoreAttempts.innerHTML 
             switch(true){
                case a == 1 || a == 21:
@@ -411,5 +410,4 @@ function surrender(){
    NoMoreAttempts.innerHTML = 0
    $("#game-over-block").fadeIn(600)
    $(".past-block-bg").fadeIn(600)
-   $(".past-block__random-number").toggleClass("past-block__random-number-lose")
 }
