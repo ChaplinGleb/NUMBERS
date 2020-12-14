@@ -36,15 +36,11 @@ body{
    width: 400px;
    box-shadow: 0 9px 21px rgba($color: #000, $alpha: 0.4);
 }
-.title{
-   font-size: 30px;
-   text-align: center;
-   line-height: 1;
-}
 .subtitle{
    text-align: left;
    font-size: 20px;
    padding: 7px 0;
+   line-height: 1;
 }
 .subtitle:nth-child(1){
    padding: 0 0 10px;
@@ -71,7 +67,7 @@ button:hover{
    transition: 0.2s;
 }
 button:disabled{
-   opacity: 0.5;
+   color: rgba(255, 255, 255, 0.2);
    pointer-events: none;
 }
 ::-webkit-scrollbar {
@@ -98,13 +94,19 @@ button:disabled{
 }
 
 /* SETTING BLOCK */
+.title{
+   font-size: 30px;
+   text-align: center;
+   line-height: 1;
+   padding-top: 5px;
+}
 .setting{
    display: block;
    position: absolute;
    left: 0;
    right: 0;
    top: calc(50% - 136px);
-   height: 255px;
+   height: 235px;
    opacity: 0;
    transition: .2s;
    
@@ -117,7 +119,7 @@ button:disabled{
    }
 }
 .setting-full{
-   height: 312px;
+   height: 286px;
 }
 .setting-hidden{
    display: none;
@@ -169,7 +171,6 @@ input[type=radio] + label {
    font-family: 'Poppins', sans-serif;
    font-weight: $Regular;
    font-size: 15px;
-   margin: 0;
    width: 80px;
    position: relative;
    text-align: center;
@@ -182,7 +183,7 @@ input[type=radio] + label {
 /* checkbox */
 .block-check{
    position: absolute;
-   top: 142px;
+   top: 132px;
    left: 130px;
 
    &__label {
@@ -303,12 +304,13 @@ input[type=radio] + label {
       color: inherit;
 
       &_item{
+         line-height: 1;
          margin-top: 10px;
       }
       &_item:first-child{
          margin-top: 0px;
       }
-   }
+   } 
    &__hits-block {
       display: none;
       
@@ -357,14 +359,14 @@ input::placeholder{
    z-index: 55555;
 
    &__title{
-      padding-top: 10px;
+      padding-top: 5px;
       font-size: 25px;
       font-weight: $Regular;
    }
    &__random-number {
       font-weight: $Bold;
       line-height: 1;
-      font-size: 40px;
+      font-size: 30px;
       padding: 5px 0 5px;
    }
    &__attempts{

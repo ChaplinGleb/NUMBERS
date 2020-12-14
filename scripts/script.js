@@ -364,7 +364,7 @@ function getHits(){
                while(num5 == num4 || num5 == num3 || num5 == num2 || num5 == num1){
                   num5 = Random()
                }
-               createAndPrepend(`В загаданном числе ${num1}, ${num2}, ${num3} и ${num4}, ${num5}`)
+               createAndPrepend(`В загаданном числе ${num1}, ${num2}, ${num3}, ${num4} и ${num5}`)
                break;
          }
          break;

@@ -41,16 +41,11 @@ body {
           box-shadow: 0 9px 21px rgba(0, 0, 0, 0.4);
 }
 
-.title {
-  font-size: 30px;
-  text-align: center;
-  line-height: 1;
-}
-
 .subtitle {
   text-align: left;
   font-size: 20px;
   padding: 7px 0;
+  line-height: 1;
 }
 
 .subtitle:nth-child(1) {
@@ -88,7 +83,7 @@ button:hover {
 }
 
 button:disabled {
-  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.2);
   pointer-events: none;
 }
 
@@ -120,13 +115,20 @@ button:disabled {
 }
 
 /* SETTING BLOCK */
+.title {
+  font-size: 30px;
+  text-align: center;
+  line-height: 1;
+  padding-top: 5px;
+}
+
 .setting {
   display: block;
   position: absolute;
   left: 0;
   right: 0;
   top: calc(50% - 136px);
-  height: 255px;
+  height: 235px;
   opacity: 0;
   -webkit-transition: .2s;
   -o-transition: .2s;
@@ -142,7 +144,7 @@ button:disabled {
 }
 
 .setting-full {
-  height: 312px;
+  height: 286px;
 }
 
 .setting-hidden {
@@ -216,7 +218,6 @@ input[type=radio] + label {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 15px;
-  margin: 0;
   width: 80px;
   position: relative;
   text-align: center;
@@ -230,7 +231,7 @@ input[type=radio] + label {
 /* checkbox */
 .block-check {
   position: absolute;
-  top: 142px;
+  top: 132px;
   left: 130px;
 }
 
@@ -373,6 +374,7 @@ input[type=radio] + label {
 }
 
 .play__box_item {
+  line-height: 1;
   margin-top: 10px;
 }
 
@@ -449,7 +451,7 @@ input::placeholder {
 }
 
 .past-block__title {
-  padding-top: 10px;
+  padding-top: 5px;
   font-size: 25px;
   font-weight: 400;
 }
@@ -457,7 +459,7 @@ input::placeholder {
 .past-block__random-number {
   font-weight: 700;
   line-height: 1;
-  font-size: 40px;
+  font-size: 30px;
   padding: 5px 0 5px;
 }
 
