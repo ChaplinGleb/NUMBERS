@@ -28,6 +28,7 @@ body {
 .container {
   background: url(../bg.png);
   background-size: cover;
+  background-position: top;
   margin: 0 auto;
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
