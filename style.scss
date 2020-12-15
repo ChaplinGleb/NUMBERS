@@ -278,7 +278,17 @@ input[type=radio] + label {
       backdrop-filter: blur(0px);
       font-size: 25px;
       line-height: 1.6;
-      //box-shadow: 0 2px 2px rgba($color: #000, $alpha: 0.4);
+   }
+   &__btn-submit2 {
+      position: absolute;
+      top: 113px;
+      right: 15px;
+      width:  33px;
+      height: 33px;
+      border-radius: 5px;
+      backdrop-filter: blur(0px);
+      font-size: 25px;
+      line-height: 1.6;
    }
 
    &__btn-hit {

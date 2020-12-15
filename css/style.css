@@ -347,6 +347,19 @@ input[type=radio] + label {
   line-height: 1.6;
 }
 
+.play__btn-submit2 {
+  position: absolute;
+  top: 113px;
+  right: 15px;
+  width: 33px;
+  height: 33px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  font-size: 25px;
+  line-height: 1.6;
+}
+
 .play__btn-hit {
   display: none;
   margin: 10px auto 0;
