@@ -11,7 +11,11 @@
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-20%, #FABE82), color-stop(110%, #03418A));
+  background: -webkit-linear-gradient(#FABE82 -20%, #03418A 110%);
+  background: -o-linear-gradient(#FABE82 -20%, #03418A 110%);
+  background: linear-gradient(#FABE82 -20%, #03418A 110%);
 }
 
 .wrapper {

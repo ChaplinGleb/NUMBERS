@@ -12,7 +12,8 @@ $Bold: 700;
 
 body{
    width: 100%;
-   height: 100%;
+   height: 100vh;
+   background: linear-gradient(#FABE82 -20%, #03418A 110%);
 }
 .wrapper{
    position: absolute;
