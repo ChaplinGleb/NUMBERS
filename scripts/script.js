@@ -163,7 +163,7 @@ function start(){
          break;
    }
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
-   console.log(RandomNum)
+   /////////////////////////////////////console.log(RandomNum)
    NoMoreAttempts.innerHTML = attempts.innerHTML
    $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
    
