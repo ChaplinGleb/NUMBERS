@@ -163,7 +163,7 @@ function start(){
          break;
    }
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
-   /////////////////////////////////////console.log(RandomNum)
+   console.log(RandomNum)
    NoMoreAttempts.innerHTML = attempts.innerHTML
    $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
    
@@ -183,14 +183,6 @@ function submit(){
    if (input.value != '' && input.value != ' '){ 
       NoMoreAttempts.innerHTML -= 1
       switch(true){
-         //не угадал
-         case NoMoreAttempts.innerHTML == '0':
-            input.setAttribute('disabled', 'true')
-            $("#game-over-block").fadeIn(600)
-            $(".past-block-bg").fadeIn(600)
-            $(".past-block__random-number").toggleClass("past-block__random-number-lose")
-            break;
-         
          //угадал
          case input.value == RandomNum:
             $("#win-block").fadeIn(600)
@@ -208,6 +200,14 @@ function submit(){
                   break;
             }
             document.querySelector('.past-block__attempts').innerHTML = `Для этого тебе ${c}`;
+            break;
+            
+         //не угадал
+         case NoMoreAttempts.innerHTML == '0':
+            input.setAttribute('disabled', 'true')
+            $("#game-over-block").fadeIn(600)
+            $(".past-block-bg").fadeIn(600)
+            $(".past-block__random-number").toggleClass("past-block__random-number-lose")
             break;
          
          //вводимое число больше максимально возможного загаданного числа
