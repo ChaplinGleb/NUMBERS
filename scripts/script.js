@@ -59,7 +59,7 @@ $(function(){
                attempts.innerHTML = 20
                break;
             case '4':
-               attempts.innerHTML = 25
+               attempts.innerHTML = 20
                break;
          }
          j = 0
@@ -114,7 +114,7 @@ for (let a = 0; a < all1.length; a++){
                attemptsOfDiff(20)
                break;
             case '4':
-               attemptsOfDiff(25)
+               attemptsOfDiff(20)
                break;
          }
       });
