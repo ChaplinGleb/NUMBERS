@@ -1,7 +1,3 @@
-# game-of-numbers
-
-[Попробуй](https://chaplingleb.github.io/NUMBERS/)
-
 <p align="center"><img src="https://psv4.userapi.com/c856228/u18686155/docs/d15/fb485c0b0bf6/Numbers.png?extra=0GWjC26R3LDNGxEy1uuHmMaZKYJil1NWIReHKgIYgW_t4YjfK5sN5kyU6wvMPv0L8H9-hAqeoEht718C2YbSytFzloocarUYiWLhBWZTDZgHI5rYnjmV2pkHQeAGSKyYiEDIqzj_FyY6eCl4egHyBe4" width="600"></p>
 
 ## О проекте
