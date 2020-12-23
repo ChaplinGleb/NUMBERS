@@ -1,11 +1,3 @@
-/* 
-СЛОЖНОСТЬ            ПОПЫТОК
-Легко: 1-100         10
-Средне: 1-1 000      15
-Сложно: 1-10 000     20
-Эксперт: 1-100 000   25
-*/
-
 const btnHits = document.getElementById('getHits');
 const checkbox = document.getElementById('checkbox1');
 const attempts = document.getElementById('attempts');
@@ -84,6 +76,19 @@ $(function(){
    })
 })
 
+/* lang */
+/* let all3 = document.querySelectorAll('.lang');
+for (let a = 0; a < all1.length; a++){ 
+   let radios = all1[a].querySelectorAll('.lang__input');
+   let i = 1;
+   all1[a].style.setProperty('--options',radios.length);
+   radios.forEach((input)=>{
+      input.setAttribute('data-pos',i);
+      input.addEventListener('click',(e)=>{
+         all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+      })
+   })
+} */
 /* difficulty */
 let all1 = document.querySelectorAll('.difficulty-block');
 for (let a = 0; a < all1.length; a++){ 
