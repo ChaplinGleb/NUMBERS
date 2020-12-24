@@ -7,7 +7,7 @@ let numOfAttempts = 10;
 let numOfDiff = '1';
 let numOfHits = 1;
 let arr = [1, 2, 3, 4, 5, 6];
-let RandomNum, max, r
+let RandomNum, max, r, i
 
 
 $(function(){
@@ -77,28 +77,36 @@ $(function(){
 })
 
 /* lang */
-/* let all3 = document.querySelectorAll('.lang');
-for (let a = 0; a < all1.length; a++){ 
-   let radios = all1[a].querySelectorAll('.lang__input');
-   let i = 1;
-   all1[a].style.setProperty('--options',radios.length);
+let all3 = document.querySelectorAll('.lang');
+for (let a = 0; a < all3.length; a++){ 
+   let radios = all3[a].querySelectorAll('.lang__input');
+   i = 1;
+   all3[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
-         all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
       })
+      i++
    })
-} */
+}
+
+
 /* difficulty */
 let all1 = document.querySelectorAll('.difficulty-block');
 for (let a = 0; a < all1.length; a++){ 
    let radios = all1[a].querySelectorAll('.difficulty-block__input');
-   let i = 1;
+   i = 1;
    all1[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
          all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+
+
+
+
+
          numOfDiff = e.target.getAttribute('data-pos')
 
          function attemptsOfDiff(num){
@@ -127,11 +135,14 @@ for (let a = 0; a < all1.length; a++){
    });
 };
 
+
+
+
 /* Hits */
 let all2 = document.querySelectorAll('.hits-block');
 for (let a = 0; a < all2.length; a++){ 
    let radios = all2[a].querySelectorAll('.hits-block__input');
-   let i = 1;
+   i = 1;
    all2[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
