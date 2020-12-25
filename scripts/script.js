@@ -25,7 +25,8 @@ $(function(){
          //показать блок подсказок
          $('.setting').toggleClass('setting-full')
          setTimeout(function(){
-            $('#hits-block').toggleClass('hits-block-show')
+            //$('#hits').toggleClass('hits-show')
+            $('#hits').css({'pointer-events' : 'all' , 'opacity' : '1' , 'transition' : '.3s'})
          }, 300)
          $('#getHits').toggleClass('play__btn-hit-show')
          $('#blockHits').toggleClass('play__hits-block_show')
@@ -33,7 +34,7 @@ $(function(){
          j = 1
       }else{
          //скрыть блок подсказок
-         $('#hits-block').toggleClass('hits-block-show')
+         $('#hits').css({'pointer-events' : 'none' , 'opacity' : '0'})
          setTimeout(function(){
             $('.setting').toggleClass('setting-full')
          }, 300)
@@ -67,7 +68,7 @@ $(function(){
 
    //игрыть заново
    $('.restart').click(function(){
-      $('#play').fadeOut()
+      $('.play').fadeOut()
       $('.past-block').fadeOut()
       $('.past-block-bg').fadeOut()
       setTimeout(function(){
@@ -76,37 +77,32 @@ $(function(){
    })
 })
 
-/* lang */
-let all3 = document.querySelectorAll('.lang');
-for (let a = 0; a < all3.length; a++){ 
-   let radios = all3[a].querySelectorAll('.lang__input');
-   i = 1;
-   all3[a].style.setProperty('--options',radios.length);
-   radios.forEach((input)=>{
-      input.setAttribute('data-pos',i);
-      input.addEventListener('click',(e)=>{
-         all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
-      })
-      i++
-   })
-}
-
-
-/* difficulty */
-let all1 = document.querySelectorAll('.difficulty-block');
+/* Lang */
+let all1 = document.querySelectorAll('.lang');
 for (let a = 0; a < all1.length; a++){ 
-   let radios = all1[a].querySelectorAll('.difficulty-block__input');
+   let radios = all1[a].querySelectorAll('.lang__input');
    i = 1;
    all1[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
          all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+      })
+      i++
+   })
+}
 
 
-
-
-
+/* Diff */
+let all2 = document.querySelectorAll('#diff');
+for (let a = 0; a < all2.length; a++){ 
+   let radios = all2[a].querySelectorAll('#diff>span>input');
+   i = 1;
+   all2[a].style.setProperty('--options',radios.length);
+   radios.forEach((input)=>{
+      input.setAttribute('data-pos',i);
+      input.addEventListener('click',(e)=>{
+         all2[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
          numOfDiff = e.target.getAttribute('data-pos')
 
          function attemptsOfDiff(num){
@@ -139,15 +135,15 @@ for (let a = 0; a < all1.length; a++){
 
 
 /* Hits */
-let all2 = document.querySelectorAll('.hits-block');
-for (let a = 0; a < all2.length; a++){ 
-   let radios = all2[a].querySelectorAll('.hits-block__input');
+let all3 = document.querySelectorAll('#hits');
+for (let a = 0; a < all3.length; a++){ 
+   let radios = all3[a].querySelectorAll('#hits>span>input');
    i = 1;
-   all2[a].style.setProperty('--options',radios.length);
+   all3[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
-         all2[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
          numOfHits = e.target.getAttribute('data-pos')
          r = Number(numOfHits)
          btnHits.innerHTML = `Подсказка (${numOfHits} шт.)`
@@ -158,9 +154,9 @@ for (let a = 0; a < all2.length; a++){
 };
 
 function start(){
-   $('#setting').fadeOut()
+   $('.setting').fadeOut()
    setTimeout(function(){
-      $('#play').fadeIn()
+      $('.play').fadeIn()
    }, 500)
    let min = 1
    
