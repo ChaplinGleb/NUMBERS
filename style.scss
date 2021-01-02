@@ -99,6 +99,9 @@ input::placeholder {
 }
 
 /* SETTING BLOCK */
+.language_eng{
+   display: none;
+}
 .subtitle {
    text-align: left;
    font-size: 20px;
@@ -108,7 +111,8 @@ input::placeholder {
 .subtitle:nth-child(1) {
    padding: 0 0 10px;
 }
-.subtitle:nth-child(8) {
+.subtitle:nth-child(10),
+.subtitle:nth-child(11) {
    position: absolute;
    bottom: 53px;
 }
@@ -215,7 +219,7 @@ input::placeholder {
 .block-check {
    position: absolute;
    top: 172px;
-   left: 130px;
+   left: 120px;
 
    &__label {
       position: relative;
@@ -256,7 +260,7 @@ input::placeholder {
       }
    }
 }
-#hits{
+#hints{
    opacity: 0;
 
    &:before{
@@ -265,7 +269,7 @@ input::placeholder {
    transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
    }
 }
-#hits span input + label {
+#hints span input + label {
    width: 50px;
 }
 
@@ -292,7 +296,7 @@ input::placeholder {
    }
    &__btn-submit {
       position: absolute;
-      top: 45px;
+      top: 49px;
       right: 15px;
       width:  33px;
       height: 33px;
@@ -301,7 +305,7 @@ input::placeholder {
       font-size: 25px;
       line-height: 1.6;
    }
-   &__btn-hit {
+   &__btn-hint {
       display: none;
       margin: 10px auto 0;
    }
@@ -322,14 +326,14 @@ input::placeholder {
       color: inherit;
 
       &_item{
-         line-height: 1;
+         line-height: 1.1;
          margin-top: 10px;
       }
       &_item:first-child{
          margin-top: 0px;
       }
    } 
-   &__hits-block {
+   &__hints-block {
       display: none;
    }
    &__btn-endGame{

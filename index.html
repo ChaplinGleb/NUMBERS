@@ -27,30 +27,43 @@
          </div>
 
             <h1 class='title'>NUMBERS</h1>
-            <p class='subtitle lang_rus'>Выбери сложность</p>
-            <!-- <p class='subtitle lang_eng'>Choose the difficulty</p> -->
+            <p class='subtitle language_rus'>Выбери сложность</p>
+            <p class='subtitle language_eng'>Choose the difficulty</p>
 
             <!-- Difficulty -->
             <div class='radio-block' id='diff'>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname2' id='radio-3' checked/>
-                  <label for='radio-3'>Легко</label>
+                  <label for='radio-3'>
+                     <p class="language_rus">Легко</p>
+                     <p class="language_eng">Easy</p>
+                  </label>
                </span>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname2' id='radio-4'/>
-                  <label for='radio-4'>Средне</label>
+                  <label for='radio-4'>
+                     <p class="language_rus">Средне</p>
+                     <p class="language_eng">Middle</p>
+                  </label>
                </span>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname2' id='radio-5'/>
-                  <label for='radio-5'>Сложно</label>
+                  <label for='radio-5'>
+                     <p class="language_rus">Сложно</p>
+                     <p class="language_eng">Hard</p>
+                  </label>
                </span>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname2' id='radio-6'/>
-                  <label for='radio-6'>Эксперт</label>
+                  <label for='radio-6'>
+                     <p class="language_rus">Эксперт</p>
+                     <p class="language_eng">Expert</p>
+                  </label>
                </span>            
             </div>
 
-            <p class='subtitle'>Подсказки</p>
+            <p class='subtitle language_rus'>Подсказки</p>
+            <p class='subtitle language_eng'>Hints</p>
 
             <!-- Checkbox -->
             <div class='block-check'>
@@ -58,8 +71,8 @@
                <label class='block-check__label' for='checkbox1' ></label>
             </div>
 
-            <!-- Hits -->
-            <div class='radio-block' id='hits'>
+            <!-- hints -->
+            <div class='radio-block' id='hints'>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname3' id='radio-7' checked/>
                   <label for='radio-7'>1</label>
@@ -87,7 +100,8 @@
             </div>
 
             <!-- Attempts -->
-            <p class='subtitle'>Попытки <span id='attempts'>10</span></p>
+            <p class='subtitle language_rus'>Попытки  <span id='attempts'>10</span></p>
+            <p class='subtitle language_eng'>Attempts  <span id='attempts'>10</span></p>
             <button class='setting__btn-start' onclick='start()'>Играть</button>
          </div>
 
@@ -95,7 +109,8 @@
          <div class='container play'>
 
             <!-- Header -->
-            <p class='subtitle'>Осталось попыток <span id='NoMoreAttempts'>10</span></p>
+            <p class='subtitle language_rus'>Осталось попыток <span id='NoMoreAttempts'>10</span></p>
+            <p class='subtitle language_eng'>Attempts left <span id='NoMoreAttempts'>10</span></p>
             <input class='play__input' id='playInput' type='number' placeholder='Твои предположения' type="number" min="0" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number">
             <button class='play__btn-submit' id='btn-submit' onclick='submit()' type='submit'>
                <svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-arrow-right-short' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
@@ -106,9 +121,9 @@
             <!-- Answers -->
             <div class='play__box'></div>
 
-            <!-- Hits -->
-            <button class='play__btn-hit' id='getHits' onclick='getHits()'>Подсказка (1 шт.)</button>
-            <div class='play__box play__hits-block' id='blockHits'></div>
+            <!-- hints -->
+            <button class='play__btn-hint' id='gethints' onclick='gethints()'>Подсказка (1 шт.)</button>
+            <div class='play__box play__hints-block' id='blockhints'></div>
             
             <!-- Footer -->
             <button class='play__btn-endGame' onclick='surrender()'>Сдаться</button>
