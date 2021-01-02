@@ -19,27 +19,30 @@ $(function(){
    
 
    let j = 0
+
    //показать/скрыть блок подсказок
    $('#checkbox1').click(function(){
       if (j == 0){
+
          //показать блок подсказок
-         $('.setting').toggleClass('setting-full')
+         $('.setting').css({'height' : '326px'})
          setTimeout(function(){
-            //$('#hits').toggleClass('hits-show')
             $('#hits').css({'pointer-events' : 'all' , 'opacity' : '1' , 'transition' : '.3s'})
          }, 300)
-         $('#getHits').toggleClass('play__btn-hit-show')
-         $('#blockHits').toggleClass('play__hits-block_show')
+         $('#getHits').css({'display' : 'block'})
+         $('#blockHits').css({'display' : 'block'})
          attempts.innerHTML = numOfAttempts - numOfHits
          j = 1
       }else{
+
          //скрыть блок подсказок
          $('#hits').css({'pointer-events' : 'none' , 'opacity' : '0'})
          setTimeout(function(){
-            $('.setting').toggleClass('setting-full')
+            $('.setting').css({'height' : '275px'})
          }, 300)
-         $('#getHits').toggleClass('play__btn-hit-show')
-         $('#blockHits').toggleClass('play__hits-block_show')
+         $('#getHits').css({'display' : 'none'})
+         $('#blockHits').css({'display' : 'none'})
+
          //возврат попыток без подсказок
          switch(numOfDiff){
             case '1':
@@ -77,10 +80,10 @@ $(function(){
    })
 })
 
-/* Lang */
+/* languages */
 let all1 = document.querySelectorAll('.lang');
 for (let a = 0; a < all1.length; a++){ 
-   let radios = all1[a].querySelectorAll('.lang__input');
+   let radios = all1[a].querySelectorAll('.lang>span>input');
    i = 1;
    all1[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
@@ -93,7 +96,7 @@ for (let a = 0; a < all1.length; a++){
 }
 
 
-/* Diff */
+/* difficult */
 let all2 = document.querySelectorAll('#diff');
 for (let a = 0; a < all2.length; a++){ 
    let radios = all2[a].querySelectorAll('#diff>span>input');
@@ -134,7 +137,7 @@ for (let a = 0; a < all2.length; a++){
 
 
 
-/* Hits */
+/* hits */
 let all3 = document.querySelectorAll('#hits');
 for (let a = 0; a < all3.length; a++){ 
    let radios = all3[a].querySelectorAll('#hits>span>input');
@@ -175,10 +178,8 @@ function start(){
          break;
    }
    RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
-   //////////////////////////////console.log(RandomNum)
    NoMoreAttempts.innerHTML = attempts.innerHTML
    $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
-   
 }
 
 function submit(){
@@ -219,7 +220,6 @@ function submit(){
             input.setAttribute('disabled', 'true')
             $("#game-over-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
-            $(".past-block__random-number").toggleClass("past-block__random-number-lose")
             break;
          
          //вводимое число больше максимально возможного загаданного числа
