@@ -1,11 +1,11 @@
 const btnhints = document.getElementById('gethints');
 const checkbox = document.getElementById('checkbox1');
 const input = document.getElementById('playInput');
+let NumberOfHints = document.getElementById('NumberOfHints');
 let NoMoreAttempts = document.getElementById('NoMoreAttempts');
 let attempts = document.getElementById('attempts');
 let numOfAttempts = 10;
 let numOfDiff = '1';
-let numOfhints = 1;
 let arr = [1, 2, 3, 4, 5, 6];
 let RandomNum, max, r, i;
 let languagesCheck = 1
@@ -46,9 +46,10 @@ for (let a = 0; a < all1.length; a++){
             $('.block-check').css({'left' : '120px'})
             document.querySelector('.subtitle:nth-child(10)').innerHTML = `Попытки <span id="attempts">${attempts.innerHTML}</span>`
             attempts = document.getElementById('attempts');
-            document.querySelector('.subtitle:nth-child(1)').innerHTML = `Осталось попыток <span id="NoMoreAttempts">10</span>`
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Осталось попыток <span id="NoMoreAttempts"></span>'
             $('button:contains("Play")').text('Играть')
             $('#playInput').attr("placeholder", "Твои преположения")
+            btnhints.innerHTML = 'Подсказка (<span id="NumberOfHints">1</span> шт.)'
             $('button:contains("Give up")').text('Сдаться')
             $('button:contains("Restart")').text('Начать заново')
          }else{
@@ -57,9 +58,10 @@ for (let a = 0; a < all1.length; a++){
             $('.block-check').css({'left' : '67px'})
             document.querySelector('.subtitle:nth-child(10)').innerHTML = `Attempts <span id="attempts">${attempts.innerHTML}</span>`
             attempts = document.getElementById('attempts');
-            document.querySelector('.subtitle:nth-child(1)').innerHTML = `Attempts left <span id="NoMoreAttempts">10</span>`
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Attempts left <span id="NoMoreAttempts"></span>'
             $('button:contains("Играть")').text('Play')
             $('#playInput').attr("placeholder", "Your assumptions")
+            btnhints.innerHTML = 'Hints left <span id="NumberOfHints">1</span>'
             $('button:contains("Сдаться")').text('Give up')
             $('button:contains("Начать заново")').text('Restart')
          }
@@ -83,7 +85,7 @@ for (let a = 0; a < all2.length; a++){
          function attemptsOfDiff(num){
             numOfAttempts = num
             if(checkbox.checked){
-               attempts.innerHTML = numOfAttempts - numOfhints
+               attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
             }else(attempts.innerHTML = numOfAttempts)
          }
 
@@ -115,7 +117,7 @@ function checkboxCheck(){
       }, 300)
       $('#gethints').css({'display' : 'block'})
       $('#blockhints').css({'display' : 'block'})
-      attempts.innerHTML = numOfAttempts - numOfhints
+      attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
    }else{
       //скрыть блок подсказок
       $('.hints').toggleClass('hints-show')
@@ -153,12 +155,9 @@ for (let a = 0; a < all3.length; a++){
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
          all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
-         numOfhints = e.target.getAttribute('data-pos')
-         r = Number(numOfhints)
-         if (languagesCheck == 1){
-            btnhints.innerHTML = `Подсказка (${numOfhints} шт.)`
-         }else{ btnhints.innerHTML = `Hints left (${numOfhints})`}
-         attempts.innerHTML = numOfAttempts - numOfhints
+         NumberOfHints.innerHTML = e.target.getAttribute('data-pos')
+         r = Number(NumberOfHints.innerHTML)
+         attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
       });
       i++;
    });
@@ -169,7 +168,6 @@ function start(){
    setTimeout(function(){
       $('.play').fadeIn()
    }, 500)
-   let min = 1
    
    switch(numOfDiff){
       case '1':
@@ -185,10 +183,16 @@ function start(){
          max = 1000000
          break;
    }
-   RandomNum = Math.floor(Math.random() * (max - min + 1)) + min
+   RandomNum = Math.floor(Math.random() * (max - 1 + 1)) + 1
    console.log(RandomNum)
+   NoMoreAttempts = document.getElementById('NoMoreAttempts')
    NoMoreAttempts.innerHTML = attempts.innerHTML
-   $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
+   NumberOfHints = document.getElementById('NumberOfHints');
+   if (r != undefined){
+      NumberOfHints.innerHTML = r
+   }else {
+      NumberOfHints.innerHTML = 1
+   }
 }
 
 function submit(){
@@ -207,6 +211,7 @@ function submit(){
       switch(true){
          //угадал
          case input.value == RandomNum:
+            $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
             $("#win-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
             a = attempts.innerHTML - NoMoreAttempts.innerHTML 
@@ -215,6 +220,7 @@ function submit(){
          //не угадал
          case NoMoreAttempts.innerHTML == '0':
             input.setAttribute('disabled', 'true')
+            $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
             $("#game-over-block").fadeIn(600)
             $(".past-block-bg").fadeIn(600)
             break;
@@ -250,23 +256,17 @@ function submit(){
 function gethints(){
    let b, a, num, num1, num2, num3, num4, num5, result = 0
    num = RandomNum
-   if (languagesCheck == 1){
-      if(btnhints.innerHTML == "Подсказка (1 шт.)"){
-         --r
-         btnhints.setAttribute('disabled', 'true')
+
+   if (NumberOfHints.innerHTML == 1){
+      --r
+      btnhints.setAttribute('disabled', 'true')
+      if (languagesCheck == 1){
          btnhints.innerHTML = 'Подсказок нет'
-      }else{
-         btnhints.innerHTML = `Подсказка (${--r} шт.)`
-      }
+      }else{btnhints.innerHTML = 'No hints'}
    }else{
-      if(btnhints.innerHTML == "Hints left (1)"){
-         --r
-         btnhints.setAttribute('disabled', 'true')
-         btnhints.innerHTML = 'No hints'
-      }else{
-         btnhints.innerHTML = `Hints left (${--r})`
-      }
+      NumberOfHints.innerHTML = --r
    }
+
    arr.sort(() => Math.random() - 0.6)
 
    function createAndPrepend(inner){
@@ -492,6 +492,7 @@ function surrender(){
    NoMoreAttempts.innerHTML = 0
    $("#game-over-block").fadeIn(600)
    $(".past-block-bg").fadeIn(600)
+   $('.past-block__random-number').text(RandomNum)
 }
 
 function restart(){

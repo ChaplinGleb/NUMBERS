@@ -36,8 +36,7 @@ button {
 }
 
 button:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
+  background: rgba(255, 255, 255, 0.3);
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
@@ -233,9 +232,6 @@ input::placeholder {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  position: absolute;
-  left: -417px;
-  right: 0;
 }
 
 .setting__btn-start {
@@ -380,8 +376,7 @@ input::placeholder {
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  display: block;
-  left: 232px;
+  display: none;
 }
 
 .play__input {
