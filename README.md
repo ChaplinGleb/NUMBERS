@@ -1,4 +1,4 @@
-<p align="center"><img src="https://psv4.userapi.com/c856228/u18686155/docs/d15/3b40ae9c1295/Numbers.png?extra=3h0GSRAjY7gd6e3KT0bFLwpzbWmS0HaqAziJfaxjis0VA-PqKd2RvCXdNQOJhck8Pfn8crcCoyYxVN6baYaIx1Cf868oYq4eFjRLyO9OkO-caghu3KS0ELweWKydZjYmRGazKL1AGQ3Owxoz6uykP6U" width="400"></p>
+<p align="center"><img src="https://psv4.userapi.com/c856228/u18686155/docs/d15/558c5eda999d/Numbers.png?extra=DcIomV29f7Of7H5a2bDFkARRv6QgdJtHFclKpnhxl_ZgtdH6nSTLrSs4YNK6LEX8PX09DYtVNK_54sR8D89phH2mtc49U1lRVDc9u01CoYKSkf_6ZjgcesTiOv2y3BeweCss_n0H0NSosyVPZAJ0hsY" width="400"></p>
 
 # О проекте
 Проект "Numbers" - это игра "Угадай число". Она написана на HTML, CSS (SCSS) и JavaScript с библиотекой Jquery. 
