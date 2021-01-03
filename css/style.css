@@ -58,7 +58,9 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-input[type=number], input[type=number]:before, input[type=number]:after {
+input[type=number],
+input[type=number]:before,
+input[type=number]:after {
   -webkit-user-select: auto;
      -moz-user-select: auto;
       -ms-user-select: auto;
@@ -152,8 +154,7 @@ input::placeholder {
   padding: 0 0 10px;
 }
 
-.subtitle:nth-child(10),
-.subtitle:nth-child(11) {
+.subtitle:nth-child(10) {
   position: absolute;
   bottom: 53px;
 }
@@ -232,6 +233,9 @@ input::placeholder {
   -webkit-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
+  position: absolute;
+  left: -417px;
+  right: 0;
 }
 
 .setting__btn-start {
@@ -240,6 +244,10 @@ input::placeholder {
   left: 0;
   right: 0;
   width: 95%;
+}
+
+.setting-full {
+  height: 326px;
 }
 
 .lang {
@@ -275,7 +283,7 @@ input::placeholder {
   padding-top: 5px;
 }
 
-#diff::before {
+.diff::before {
   left: 7.5px;
   width: 80px;
   -webkit-transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
@@ -283,7 +291,7 @@ input::placeholder {
           transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
 }
 
-#diff span input + label {
+.diff span input + label {
   width: 80px;
 }
 
@@ -335,11 +343,15 @@ input::placeholder {
   background: white;
 }
 
-#hints {
+.hints {
   opacity: 0;
+  pointer-events: none;
+  -webkit-transition: .3;
+  -o-transition: .3;
+  transition: .3;
 }
 
-#hints:before {
+.hints:before {
   left: 6px;
   width: 50px;
   -webkit-transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
@@ -347,8 +359,16 @@ input::placeholder {
           transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
 }
 
-#hints span input + label {
+.hints span input + label {
   width: 50px;
+}
+
+.hints-show {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transition: .3;
+  -o-transition: .3;
+  transition: .3;
 }
 
 /* PLAY BLOCK */
@@ -360,7 +380,8 @@ input::placeholder {
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  display: none;
+  display: block;
+  left: 232px;
 }
 
 .play__input {
@@ -380,7 +401,7 @@ input::placeholder {
 
 .play__btn-submit {
   position: absolute;
-  top: 49px;
+  top: 45px;
   right: 15px;
   width: 33px;
   height: 33px;

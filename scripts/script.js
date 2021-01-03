@@ -1,134 +1,77 @@
 const btnhints = document.getElementById('gethints');
 const checkbox = document.getElementById('checkbox1');
 const input = document.getElementById('playInput');
-let ArrNoMoreAttempts = document.querySelectorAll('#NoMoreAttempts');
-let ArrAttempts = document.querySelectorAll('#attempts');
-let attempts = ArrAttempts[0];
-let NoMoreAttempts = ArrNoMoreAttempts[0]
+let NoMoreAttempts = document.getElementById('NoMoreAttempts');
+let attempts = document.getElementById('attempts');
 let numOfAttempts = 10;
 let numOfDiff = '1';
 let numOfhints = 1;
 let arr = [1, 2, 3, 4, 5, 6];
-let RandomNum, max, r, i
+let RandomNum, max, r, i;
 let languagesCheck = 1
 
+
+
 $(function(){
+   // появление блока setting
    setTimeout(function(){
-      $('.setting').animate({
-         opacity: 1,
-      }, 500)
+      $('.setting').animate({opacity: 1}, 500)
    }, 300)
    
-
-   let j = 0
-
-   //показать/скрыть блок подсказок
-   $('#checkbox1').click(function(){
-      if (j == 0){
-
-         //показать блок подсказок
-         $('.setting').css({'height' : '326px'})
-         setTimeout(function(){
-            $('#hints').css({'pointer-events' : 'all' , 'opacity' : '1' , 'transition' : '.3s'})
-         }, 300)
-         $('#gethints').css({'display' : 'block'})
-         $('#blockhints').css({'display' : 'block'})
-         attempts.innerHTML = numOfAttempts - numOfhints
-         j = 1
-      }else{
-
-         //скрыть блок подсказок
-         $('#hints').css({'pointer-events' : 'none' , 'opacity' : '0'})
-         setTimeout(function(){
-            $('.setting').css({'height' : '275px'})
-         }, 300)
-         $('#gethints').css({'display' : 'none'})
-         $('#blockhints').css({'display' : 'none'})
-
-         //возврат попыток без подсказок
-         switch(numOfDiff){
-            case '1':
-               attempts.innerHTML = 10
-               break;
-            case '2':
-               attempts.innerHTML = 15
-               break;
-            case '3':
-               attempts.innerHTML = 20
-               break;
-            case '4':
-               attempts.innerHTML = 20
-               break;
-         }
-         j = 0
-      }
-   })
-
    // кнопка ENTER
    $('#playInput').keyup(function(event){
       if (event.keyCode === 13) {
           $("#btn-submit").click();
       }
    });
-
-   //игрыть заново
-   $('.restart').click(function(){
-      $('.play').fadeOut()
-      $('.past-block').fadeOut()
-      $('.past-block-bg').fadeOut()
-      setTimeout(function(){
-         window.location.reload()
-      }, 350)
-   })
 })
 
-/* languages */
+// languages block
 let all1 = document.querySelectorAll('.lang');
 for (let a = 0; a < all1.length; a++){ 
    let radios = all1[a].querySelectorAll('.lang>span>input');
    i = 1;
-   all1[a].style.setProperty('--options',radios.length);
+   all1[a].style.setProperty('--options', radios.length);
    radios.forEach((input)=>{
       input.setAttribute('data-pos',i);
       input.addEventListener('click',(e)=>{
-         all1[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         all1[a].style.setProperty('--options-active', e.target.getAttribute('data-pos'));
          
-         //смена языка
+         // change language text 
          languagesCheck = e.target.getAttribute('data-pos')
          console.log(languagesCheck)
          if (languagesCheck == 1){
             $('.language_rus').css({'display' : 'block'})
             $('.language_eng').css({'display' : 'none'})
             $('.block-check').css({'left' : '120px'})
-            attempts = ArrAttempts[0]
-            NoMoreAttempts = ArrNoMoreAttempts[0]
+            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Попытки <span id="attempts">${attempts.innerHTML}</span>`
+            attempts = document.getElementById('attempts');
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = `Осталось попыток <span id="NoMoreAttempts">10</span>`
             $('button:contains("Play")').text('Играть')
             $('#playInput').attr("placeholder", "Твои преположения")
             $('button:contains("Give up")').text('Сдаться')
             $('button:contains("Restart")').text('Начать заново')
-            $('button:contains("Hints left (1)")').text('Подсказка (1 шт.)')
          }else{
             $('.language_eng').css({'display' : 'block'})
             $('.language_rus').css({'display' : 'none'})
             $('.block-check').css({'left' : '67px'})
-            attempts = ArrAttempts[1]
-            NoMoreAttempts = ArrNoMoreAttempts[1]
+            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Attempts <span id="attempts">${attempts.innerHTML}</span>`
+            attempts = document.getElementById('attempts');
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = `Attempts left <span id="NoMoreAttempts">10</span>`
             $('button:contains("Играть")').text('Play')
             $('#playInput').attr("placeholder", "Your assumptions")
             $('button:contains("Сдаться")').text('Give up')
             $('button:contains("Начать заново")').text('Restart')
-            $('button:contains("Подсказка (1 шт.)")').text('Hints left (1)')
          }
       })
       i++
    })
 }
 
-
-/* difficult */
-let all2 = document.querySelectorAll('#diff');
+// difficult
+let all2 = document.querySelectorAll('.diff');
 for (let a = 0; a < all2.length; a++){ 
-   let radios = all2[a].querySelectorAll('#diff>span>input');
+   let radios = all2[a].querySelectorAll('.diff>span>input');
    i = 1;
    all2[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
@@ -163,13 +106,47 @@ for (let a = 0; a < all2.length; a++){
    });
 };
 
+function checkboxCheck(){
+   if (checkbox.checked){
+      //показать блок подсказок
+      $('.setting').toggleClass('setting-full')
+      setTimeout(function(){
+         $('.hints').toggleClass('hints-show')
+      }, 300)
+      $('#gethints').css({'display' : 'block'})
+      $('#blockhints').css({'display' : 'block'})
+      attempts.innerHTML = numOfAttempts - numOfhints
+   }else{
+      //скрыть блок подсказок
+      $('.hints').toggleClass('hints-show')
+      setTimeout(function(){
+         $('.setting').toggleClass('setting-full')
+      }, 300)
+      $('#gethints').css({'display' : 'none'})
+      $('#blockhints').css({'display' : 'none'})
+      
+      //возврат попыток без подсказок
+      switch(numOfDiff){
+         case '1':
+            attempts.innerHTML = 10
+            break;
+         case '2':
+            attempts.innerHTML = 15
+            break;
+         case '3':
+            attempts.innerHTML = 20
+            break;
+         case '4':
+            attempts.innerHTML = 20
+            break;
+      }
+   }
+}
 
-
-
-/* hints */
-let all3 = document.querySelectorAll('#hints');
+// hints
+let all3 = document.querySelectorAll('.hints');
 for (let a = 0; a < all3.length; a++){ 
-   let radios = all3[a].querySelectorAll('#hints>span>input');
+   let radios = all3[a].querySelectorAll('.hints>span>input');
    i = 1;
    all3[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
@@ -215,7 +192,7 @@ function start(){
 }
 
 function submit(){
-   let b, a, c;
+   let b, a;
 
    function addAttempt(inner2){
       b = document.createElement("p");
@@ -366,8 +343,7 @@ function gethints(){
       //есть ли в числе цифра 14524
       case 3:
          function Random() {
-            let r
-            r = Math.floor(Math.random() * (9 - 0 + 1)) + 0
+            let r = Math.floor(Math.random() * (9 - 0 + 1)) + 0
             if(String(RandomNum).includes(r)){
                if (languagesCheck == 1){
                   result = `есть цифра ${r}`
@@ -516,4 +492,13 @@ function surrender(){
    NoMoreAttempts.innerHTML = 0
    $("#game-over-block").fadeIn(600)
    $(".past-block-bg").fadeIn(600)
+}
+
+function restart(){
+   $('.play').fadeOut()
+   $('.past-block').fadeOut()
+   $('.past-block-bg').fadeOut()
+   setTimeout(function(){
+      window.location.reload()
+   }, 350)
 }

@@ -11,27 +11,28 @@
    </head>
    <body>
       <div class="wrapper">
-         <!-- setting -->
+         <!-- SETTING -->
          <div class='container setting'>
       
-         <!-- languages -->
-         <div class="lang radio-block">
-            <span class='lang__item radio-block__item'>
-               <input type='radio' name='radioname1' id='radio-1' checked/>
-               <label for='radio-1'>RU</label>
-            </span>
-            <span class='lang__item radio-block__item'>
-               <input type='radio' name='radioname1' id='radio-2'/>
-               <label for='radio-2'>EN</label>
-            </span>
-         </div>
+            <!-- languages -->
+            <div class="lang radio-block">
+               <span class='lang__item radio-block__item'>
+                  <input type='radio' name='radioname1' id='radio-1' checked/>
+                  <label for='radio-1'>RU</label>
+               </span>
+               <span class='lang__item radio-block__item'>
+                  <input type='radio' name='radioname1' id='radio-2'/>
+                  <label for='radio-2'>EN</label>
+               </span>
+            </div>
 
+            <!-- header -->
             <h1 class='title'>NUMBERS</h1>
             <p class='subtitle language_rus'>Выбери сложность</p>
             <p class='subtitle language_eng'>Choose the difficulty</p>
 
-            <!-- Difficulty -->
-            <div class='radio-block' id='diff'>
+            <!-- difficulty -->
+            <div class='radio-block diff'>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname2' id='radio-3' checked/>
                   <label for='radio-3'>
@@ -65,14 +66,14 @@
             <p class='subtitle language_rus'>Подсказки</p>
             <p class='subtitle language_eng'>Hints</p>
 
-            <!-- Checkbox -->
+            <!-- checkbox -->
             <div class='block-check'>
-               <input class='block-check__input' id='checkbox1' type='checkbox'/>
+               <input class='block-check__input' id='checkbox1' type='checkbox' onclick="checkboxCheck()"/>
                <label class='block-check__label' for='checkbox1' ></label>
             </div>
 
             <!-- hints -->
-            <div class='radio-block' id='hints'>
+            <div class='radio-block hints'>
                <span class='radio-block__item'>
                   <input type='radio' name='radioname3' id='radio-7' checked/>
                   <label for='radio-7'>1</label>
@@ -99,18 +100,16 @@
                </span>            
             </div>
 
-            <!-- Attempts -->
-            <p class='subtitle language_rus'>Попытки  <span id='attempts'>10</span></p>
-            <p class='subtitle language_eng'>Attempts  <span id='attempts'>10</span></p>
+            <!-- attempts -->
+            <p class='subtitle'>Попытки <span id='attempts'>10</span></p>
             <button class='setting__btn-start' onclick='start()'>Играть</button>
          </div>
 
-         <!-- play --> 
+         <!-- PLAY --> 
          <div class='container play'>
 
-            <!-- Header -->
-            <p class='subtitle language_rus'>Осталось попыток <span id='NoMoreAttempts'>10</span></p>
-            <p class='subtitle language_eng'>Attempts left <span id='NoMoreAttempts'>10</span></p>
+            <!-- header -->
+            <p class='subtitle'>Осталось попыток <span id='NoMoreAttempts'>10</span></p>
             <input class='play__input' id='playInput' type='number' placeholder='Твои предположения' type="number" min="0" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number">
             <button class='play__btn-submit' id='btn-submit' onclick='submit()' type='submit'>
                <svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-arrow-right-short' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
@@ -118,33 +117,37 @@
                </svg>
             </button>
 
-            <!-- Answers -->
+            <!-- answers -->
             <div class='play__box'></div>
 
             <!-- hints -->
             <button class='play__btn-hint' id='gethints' onclick='gethints()'>Подсказка (1 шт.)</button>
             <div class='play__box play__hints-block' id='blockhints'></div>
             
-            <!-- Footer -->
+            <!-- footer btns-->
             <button class='play__btn-endGame' onclick='surrender()'>Сдаться</button>
-            <button class='play__btn-endGame restart'>Начать заново</button>
+            <button class='play__btn-endGame' onclick='restart()'>Начать заново</button>
          </div>
          
+         <!-- PAST BLOCK -->
          <!-- win block -->
          <div class='container past-block' id='win-block'>
-            <p class='title'>Ты отгадал число</p>
+            <p class='past-block__title language_rus'>Ты отгадал число</p>
+            <p class='past-block__title language_eng'>You guessed the number</p>
             <p class='past-block__random-number'></p>
-            <p class='past-block__attempts'></p>
-            <p class='past-block__text'>Сыграть еще раз?</p>
-            <button class='past-block__btn restart'>Играть</button>
+            <p class='past-block__text language_rus'>Сыграть еще раз?</p>
+            <p class='past-block__text language_eng'>Play again?</p>
+            <button class='past-block__btn' onclick="restart()">Играть</button>
          </div>
          
          <!-- game over block -->
          <div class='container past-block' id='game-over-block'>
-            <p class='past-block__title'>Ты не отгадал число</p>
+            <p class='past-block__title language_rus'>Ты не отгадал число</p>
+            <p class='past-block__title language_eng'>You didn't guess the number</p>
             <p class='past-block__random-number'></p>
-            <p class='past-block__text'>Сыграть еще раз?</p>
-            <button class='past-block__btn restart'>Играть</button>
+            <p class='past-block__text language_rus'>Сыграть еще раз?</p>
+            <p class='past-block__text language_eng'>Play again?</p>
+            <button class='past-block__btn' onclick="restart()">Играть</button>
          </div>
       </div>
       <div class='past-block-bg'></div>

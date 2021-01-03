@@ -43,7 +43,9 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
 }
-input[type=number], input[type=number]:before, input[type=number]:after {
+input[type=number], 
+input[type=number]:before, 
+input[type=number]:after {
    user-select: auto;
 }
 input::placeholder {
@@ -111,8 +113,7 @@ input::placeholder {
 .subtitle:nth-child(1) {
    padding: 0 0 10px;
 }
-.subtitle:nth-child(10),
-.subtitle:nth-child(11) {
+.subtitle:nth-child(10) {
    position: absolute;
    bottom: 53px;
 }
@@ -172,6 +173,10 @@ input::placeholder {
    height: 275px;
    opacity: 0;
    transition: .2s;
+   // позиционирование
+   position: absolute;
+   left: -417px;
+   right: 0;
    
    &__btn-start{
       position: absolute;
@@ -180,6 +185,9 @@ input::placeholder {
       right: 0;
       width: 95%;
    }
+}
+.setting-full{
+   height: 326px;
 }
 .lang {
    width: 80px;
@@ -208,12 +216,12 @@ input::placeholder {
    line-height: 1;
    padding-top: 5px;
 }
-#diff::before {
+.diff::before {
    left: 7.5px;
    width: 80px;
    transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
 }
-#diff span input + label {
+.diff span input + label {
    width: 80px;
 }
 .block-check {
@@ -260,8 +268,10 @@ input::placeholder {
       }
    }
 }
-#hints{
+.hints{
    opacity: 0;
+   pointer-events: none;
+   transition: .3;
 
    &:before{
       left: 6px;
@@ -269,18 +279,25 @@ input::placeholder {
    transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
    }
 }
-#hints span input + label {
+.hints span input + label {
    width: 50px;
+}
+.hints-show{
+   opacity: 1;
+   pointer-events: all;
+   transition: .3;
 }
 
 /* PLAY BLOCK */
 .play{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    display: none;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 50%;
+   transform: translate(0, -50%);
+   // позиционирование
+   display: block;
+   left: 232px;
 
    &__input {
       display: block;
@@ -296,7 +313,7 @@ input::placeholder {
    }
    &__btn-submit {
       position: absolute;
-      top: 49px;
+      top: 45px;
       right: 15px;
       width:  33px;
       height: 33px;
