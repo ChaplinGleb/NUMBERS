@@ -164,6 +164,27 @@ input::placeholder {
       z-index: 111;
    }
 }
+.lang {
+   width: 80px;
+   margin: 0 auto; 
+
+   &:before {
+     top: 5px;
+     left: 5px;
+     height: 30px;
+     width: 30px;
+     transform: translateX(calc((100% + 10px) * (var(--options-active) - 1)));
+   }
+   &__item {
+      margin: 5px 5px;
+      line-height: 2;
+      height: 30px;
+      border-radius: 5px;
+   }
+   &__item input + label {
+      width: 30px;
+   }
+}
 .setting {
    display: block;
    position: absolute;
@@ -188,27 +209,6 @@ input::placeholder {
 }
 .setting-full{
    height: 326px;
-}
-.lang {
-   width: 80px;
-   margin: 0 auto; 
-
-   &:before {
-     top: 5px;
-     left: 5px;
-     height: 30px;
-     width: 30px;
-     transform: translateX(calc((100% + 10px) * (var(--options-active) - 1)));
-   }
-   &__item {
-      margin: 5px 5px;
-      line-height: 2;
-      height: 30px;
-      border-radius: 5px;
-   }
-   &__item input + label {
-      width: 30px;
-   }
 }
 .title {
    font-size: 30px;

@@ -221,31 +221,6 @@ input::placeholder {
   z-index: 111;
 }
 
-.setting {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(50% - 136px);
-  height: 275px;
-  opacity: 0;
-  -webkit-transition: .2s;
-  -o-transition: .2s;
-  transition: .2s;
-}
-
-.setting__btn-start {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  width: 95%;
-}
-
-.setting-full {
-  height: 326px;
-}
-
 .lang {
   width: 80px;
   margin: 0 auto;
@@ -270,6 +245,31 @@ input::placeholder {
 
 .lang__item input + label {
   width: 30px;
+}
+
+.setting {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 136px);
+  height: 275px;
+  opacity: 0;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.setting__btn-start {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  width: 95%;
+}
+
+.setting-full {
+  height: 326px;
 }
 
 .title {
