@@ -8,6 +8,7 @@ $Bold: 700;
    user-select: none;
    border: none;
    outline: none;
+   text-decoration: none;
 }
 body {
    width: 100%;
@@ -75,7 +76,7 @@ input::placeholder {
 }
 
 
-
+/* general settings */
 .wrapper {
    position: absolute;
    left: 0;
@@ -86,7 +87,7 @@ input::placeholder {
    box-sizing: border-box;
 }
 .container {
-   background: url(../bg.png);
+   background: url(../images/bg.png);
    background-size: cover;
    background-position: top;
    margin: 0 auto;
@@ -99,23 +100,11 @@ input::placeholder {
    width: 400px;
    box-shadow: 0 9px 21px rgba($color: #000, $alpha: 0.4);
 }
-
-/* SETTING BLOCK */
-.language_eng{
-   display: none;
-}
 .subtitle {
    text-align: left;
    font-size: 20px;
    padding: 7px 0;
    line-height: 1;
-}
-.subtitle:nth-child(1) {
-   padding: 0 0 10px;
-}
-.subtitle:nth-child(10) {
-   position: absolute;
-   bottom: 53px;
 }
 .radio-block {
    background: rgba(255, 255, 255, 0.2);
@@ -153,9 +142,9 @@ input::placeholder {
    &__item input + label {
       border-radius: 5px;
       flex: 1 1 100%;
-      ///font-family: 'Poppins', sans-serif;          ????
-      ///font-weight: $Regular;                       ????
-      ///font-size: 15px;                             ????
+      ///font-family: 'Poppins', sans-serif;             ????
+      ///font-weight: $Regular;                          ????
+      ///font-size: 15px;                                ????
       margin: 0 auto;
       position: relative;
       text-align: center;
@@ -164,34 +153,28 @@ input::placeholder {
       z-index: 111;
    }
 }
-.lang {
-   width: 80px;
-   margin: 0 auto; 
-
-   &:before {
-     top: 5px;
-     left: 5px;
-     height: 30px;
-     width: 30px;
-     transform: translateX(calc((100% + 10px) * (var(--options-active) - 1)));
-   }
-   &__item {
-      margin: 5px 5px;
-      line-height: 2;
-      height: 30px;
-      border-radius: 5px;
-   }
-   &__item input + label {
-      width: 30px;
-   }
+.language-eng {
+   display: none;
 }
-.setting {
+.btn-setting {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   width: 25px;
+   height: 25px;
+   line-height: 1.3;
+   padding-left: 1px;
+}
+
+
+/* FIRST-BLOCK */
+.first-block {
    display: block;
    position: absolute;
    left: 0;
    right: 0;
    top: calc(50% - 136px);
-   height: 275px;
+   height: 238px;
    opacity: 0;
    transition: .2s;
    // позиционирование
@@ -199,34 +182,57 @@ input::placeholder {
    // left: -417px;
    // right: 0;
    
-   &__btn-start{
+   &__title {
+      font-size: 30px;
+      text-align: center;
+      line-height: 1;
+      padding-top: 5px;
+   }
+   &__btn-start {
       position: absolute;
       bottom: 10px;
       left: 0;
       right: 0;
       width: 95%;
    }
-}
-.setting-full{
-   height: 326px;
-}
-.title {
-   font-size: 30px;
-   text-align: center;
-   line-height: 1;
-   padding-top: 5px;
-}
-.diff::before {
-   left: 7.5px;
-   width: 80px;
-   transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
-}
-.diff span input + label {
-   width: 80px;
+   &__full-size {
+      height: 286px;
+   }
+   &__diff::before {
+      left: 7.5px;
+      width: 80px;
+      transform: translateX(calc((100% + 15px) * (var(--options-active) - 1)));
+   }
+   &__diff span input + label {
+      width: 80px;
+   }
+   &__hints {
+   opacity: 0;
+   pointer-events: none;
+   transition: .3s;
+
+      &:before {
+         left: 6px;
+         width: 50px;
+         transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
+      }
+      span input + label {
+         width: 50px;
+      }
+   }
+   &__hints-show {
+      opacity: 1;
+      pointer-events: all;
+      transition: .3s;
+   }
+   .subtitle:nth-child(10) {
+      position: absolute;
+      bottom: 53px;
+   }
 }
 .block-check {
    position: absolute;
-   top: 172px;
+   top: 132px;
    left: 120px;
 
    &__label {
@@ -268,28 +274,10 @@ input::placeholder {
       }
    }
 }
-.hints{
-   opacity: 0;
-   pointer-events: none;
-   transition: .3;
 
-   &:before{
-      left: 6px;
-   width: 50px;
-   transform: translateX(calc((100% + 13.5px) * (var(--options-active) - 1)));
-   }
-}
-.hints span input + label {
-   width: 50px;
-}
-.hints-show{
-   opacity: 1;
-   pointer-events: all;
-   transition: .3;
-}
 
-/* PLAY BLOCK */
-.play{
+/* SECOND-BLOCK */
+.second-block{
    position: absolute;
    left: 0;
    right: 0;
@@ -349,8 +337,8 @@ input::placeholder {
       &_item:first-child{
          margin-top: 0px;
       }
-   } 
-   &__hints-block {
+   }
+   &__box:nth-child(6){
       display: none;
    }
    &__btn-endGame{
@@ -362,9 +350,12 @@ input::placeholder {
       margin-left: 5px;
    }
 }
+.second-block .subtitle:nth-child(1) {
+   padding: 0 0 10px;
+}
 
-/* PAST BLOCK */
-.past-block-bg {
+/* POP-UP */
+.pop-bg {
    position: relative;
    display: none;
    width: 100%;
@@ -372,7 +363,7 @@ input::placeholder {
    background: rgba($color: #000, $alpha: 0.5);
    z-index: 11111;
 }
-.past-block {
+.pop-block {
    display: none;
    position: absolute;
    text-align: center;
@@ -381,9 +372,9 @@ input::placeholder {
    top: calc(50% - 100px);
    margin: 0 auto;
    padding: 10px 0;
-   width: 400px;
    background: linear-gradient(#FABE82 -20%, #03418A 110%);
    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+   width: 400px;
    z-index: 55555;
 
    &__title{
@@ -407,5 +398,52 @@ input::placeholder {
    &__btn {
       width: 95%;
       margin: 0 auto;
+   }
+}
+.setting{
+   height: 219px;
+   padding: 26px 10px 10px; 
+   
+   &__lang {
+      &:before {
+      left: 5px;
+      width: 180px;
+      transform: translateX(calc((100% + 10px) * (var(--options-active) - 1)));
+      }
+      span input + label {
+         width: 180px;
+      }
+   }
+   &__soc-net {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      border-radius: 5px;
+      width: 100%;
+      height: 43px;
+
+      a {
+         display: inline-block;
+         width: 116px;
+         height: 33px;
+         margin: 5px 2px;
+         line-height: 2.7;
+         background: none;
+         backdrop-filter: none;
+         transition: .2s;
+      }
+      
+      a:hover {
+         border-radius: 5px;
+         background: rgba(255, 255, 255, 0.2);
+         transition: .2s;
+      }
+   }
+   .subtitle:nth-child(8) {
+      padding-top: 12px;
+      text-align: center;
+      font-size: 17px;
+   }
+   .subtitle:nth-child(8) img {
+      padding-left: 2px;
    }
 }

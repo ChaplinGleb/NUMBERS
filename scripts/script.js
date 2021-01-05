@@ -1,4 +1,6 @@
 const btnhints = document.getElementById('gethints');
+
+
 const checkbox = document.getElementById('checkbox1');
 const input = document.getElementById('playInput');
 let NumberOfHints = document.getElementById('NumberOfHints');
@@ -13,9 +15,9 @@ let languagesCheck = 1
 
 
 $(function(){
-   // появление блока setting
+   // появление блока first-block
    setTimeout(function(){
-      $('.setting').animate({opacity: 1}, 500)
+      $('.first-block').animate({opacity: 1}, 500)
    }, 300)
    
    // кнопка ENTER
@@ -26,54 +28,10 @@ $(function(){
    });
 })
 
-// languages block
-let all1 = document.querySelectorAll('.lang');
-for (let a = 0; a < all1.length; a++){ 
-   let radios = all1[a].querySelectorAll('.lang>span>input');
-   i = 1;
-   all1[a].style.setProperty('--options', radios.length);
-   radios.forEach((input)=>{
-      input.setAttribute('data-pos',i);
-      input.addEventListener('click',(e)=>{
-         all1[a].style.setProperty('--options-active', e.target.getAttribute('data-pos'));
-         
-         // change language text 
-         languagesCheck = e.target.getAttribute('data-pos')
-         console.log(languagesCheck)
-         if (languagesCheck == 1){
-            $('.language_rus').css({'display' : 'block'})
-            $('.language_eng').css({'display' : 'none'})
-            $('.block-check').css({'left' : '120px'})
-            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Попытки <span id="attempts">${attempts.innerHTML}</span>`
-            attempts = document.getElementById('attempts');
-            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Осталось попыток <span id="NoMoreAttempts"></span>'
-            $('button:contains("Play")').text('Играть')
-            $('#playInput').attr("placeholder", "Твои преположения")
-            btnhints.innerHTML = 'Подсказка (<span id="NumberOfHints">1</span> шт.)'
-            $('button:contains("Give up")').text('Сдаться')
-            $('button:contains("Restart")').text('Начать заново')
-         }else{
-            $('.language_eng').css({'display' : 'block'})
-            $('.language_rus').css({'display' : 'none'})
-            $('.block-check').css({'left' : '67px'})
-            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Attempts <span id="attempts">${attempts.innerHTML}</span>`
-            attempts = document.getElementById('attempts');
-            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Attempts left <span id="NoMoreAttempts"></span>'
-            $('button:contains("Играть")').text('Play')
-            $('#playInput').attr("placeholder", "Your assumptions")
-            btnhints.innerHTML = 'Hints left <span id="NumberOfHints">1</span>'
-            $('button:contains("Сдаться")').text('Give up')
-            $('button:contains("Начать заново")').text('Restart')
-         }
-      })
-      i++
-   })
-}
-
-// difficult
-let all2 = document.querySelectorAll('.diff');
+// radio-block diff
+let all2 = document.querySelectorAll('.first-block__diff');
 for (let a = 0; a < all2.length; a++){ 
-   let radios = all2[a].querySelectorAll('.diff>span>input');
+   let radios = all2[a].querySelectorAll('.first-block__diff>span>input');
    i = 1;
    all2[a].style.setProperty('--options',radios.length);
    radios.forEach((input)=>{
@@ -108,24 +66,96 @@ for (let a = 0; a < all2.length; a++){
    });
 };
 
+// radio-block hints
+let all3 = document.querySelectorAll('.first-block__hints');
+for (let a = 0; a < all3.length; a++){ 
+   let radios = all3[a].querySelectorAll('.first-block__hints>span>input');
+   i = 1;
+   all3[a].style.setProperty('--options',radios.length);
+   radios.forEach((input)=>{
+      input.setAttribute('data-pos',i);
+      input.addEventListener('click',(e)=>{
+         all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
+         NumberOfHints.innerHTML = e.target.getAttribute('data-pos')
+         r = Number(NumberOfHints.innerHTML)
+         attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
+      });
+      i++;
+   });
+};
+
+// radio-block lang
+let all1 = document.querySelectorAll('.setting__lang');
+for (let a = 0; a < all1.length; a++){ 
+   let radios = all1[a].querySelectorAll('.setting__lang>span>input');
+   i = 1;
+   all1[a].style.setProperty('--options', radios.length);
+   radios.forEach((input)=>{
+      input.setAttribute('data-pos',i);
+      input.addEventListener('click',(e)=>{
+         all1[a].style.setProperty('--options-active', e.target.getAttribute('data-pos'));
+         
+         // change language text 
+         languagesCheck = e.target.getAttribute('data-pos')
+         console.log(languagesCheck)
+         if (languagesCheck == 1){
+            $('.language-rus').css({'display' : 'block'})
+            $('.language-eng').css({'display' : 'none'})
+            $('.block-check').css({'left' : '120px'})
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Осталось попыток <span id="NoMoreAttempts"></span>'
+            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Попытки <span id="attempts">${attempts.innerHTML}</span>`
+            attempts = document.getElementById('attempts');
+            $('button:contains("Play")').text('Играть')
+            $('#playInput').attr("placeholder", "Твои преположения")
+            btnhints.innerHTML = 'Подсказка (<span id="NumberOfHints">1</span> шт.)'
+            $('button:contains("Give up")').text('Сдаться')
+            $('button:contains("Restart")').text('Начать заново')
+         }else{
+            $('.language-eng').css({'display' : 'block'})
+            $('.language-rus').css({'display' : 'none'})
+            $('.block-check').css({'left' : '67px'})
+            document.querySelector('.subtitle:nth-child(1)').innerHTML = 'Attempts left <span id="NoMoreAttempts"></span>'
+            document.querySelector('.subtitle:nth-child(10)').innerHTML = `Attempts <span id="attempts">${attempts.innerHTML}</span>`
+            attempts = document.getElementById('attempts');
+            $('button:contains("Играть")').text('Play')
+            $('#playInput').attr("placeholder", "Your assumptions")
+            btnhints.innerHTML = 'Hints left <span id="NumberOfHints">1</span>'
+            $('button:contains("Сдаться")').text('Give up')
+            $('button:contains("Начать заново")').text('Restart')
+         }
+      })
+      i++
+   })
+}
+
+function openSetting() {
+   $(".pop-bg").fadeIn()
+   $(".setting").fadeIn()
+}
+
+function closeSetting(){
+   $(".pop-bg").fadeOut()
+   $(".setting").fadeOut()
+}
+
 function checkboxCheck(){
    if (checkbox.checked){
       //показать блок подсказок
-      $('.setting').toggleClass('setting-full')
+      $('.first-block').toggleClass('first-block__full-size')
       setTimeout(function(){
-         $('.hints').toggleClass('hints-show')
+         $('.first-block__hints').toggleClass('first-block__hints-show')
       }, 300)
-      $('#gethints').css({'display' : 'block'})
-      $('#blockhints').css({'display' : 'block'})
+      $('.second-block__btn-hint').css({'display' : 'block'})
+      $('.second-block__box:nth-child(6)').css({'display' : 'block'})
       attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
    }else{
       //скрыть блок подсказок
-      $('.hints').toggleClass('hints-show')
+      $('.first-block__hints').toggleClass('first-block__hints-show')
       setTimeout(function(){
-         $('.setting').toggleClass('setting-full')
+         $('.first-block').toggleClass('first-block__full-size')
       }, 300)
-      $('#gethints').css({'display' : 'none'})
-      $('#blockhints').css({'display' : 'none'})
+      $('.second-block__btn-hint').css({'display' : 'none'})
+      $('.second-block__box:nth-child(6)').css({'display' : 'none'})
       
       //возврат попыток без подсказок
       switch(numOfDiff){
@@ -145,28 +175,10 @@ function checkboxCheck(){
    }
 }
 
-// hints
-let all3 = document.querySelectorAll('.hints');
-for (let a = 0; a < all3.length; a++){ 
-   let radios = all3[a].querySelectorAll('.hints>span>input');
-   i = 1;
-   all3[a].style.setProperty('--options',radios.length);
-   radios.forEach((input)=>{
-      input.setAttribute('data-pos',i);
-      input.addEventListener('click',(e)=>{
-         all3[a].style.setProperty('--options-active',e.target.getAttribute('data-pos'));
-         NumberOfHints.innerHTML = e.target.getAttribute('data-pos')
-         r = Number(NumberOfHints.innerHTML)
-         attempts.innerHTML = numOfAttempts - NumberOfHints.innerHTML
-      });
-      i++;
-   });
-};
-
 function start(){
-   $('.setting').fadeOut()
+   $('.first-block').fadeOut()
    setTimeout(function(){
-      $('.play').fadeIn()
+      $('.second-block').fadeIn()
    }, 500)
    
    switch(numOfDiff){
@@ -200,9 +212,9 @@ function submit(){
 
    function addAttempt(inner2){
       b = document.createElement("p");
-      b.className = "play__box_item";
+      b.className = "second-block__box_item";
       b.innerHTML = parseInt(input.value).toLocaleString('ru-Ru') + inner2;
-      document.querySelector('.play__box').prepend(b)
+      document.querySelector('.second-block__box').prepend(b)
    }
 
    //сравнение вводимого с загаданным числом
@@ -211,18 +223,18 @@ function submit(){
       switch(true){
          //угадал
          case input.value == RandomNum:
-            $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
-            $("#win-block").fadeIn(600)
-            $(".past-block-bg").fadeIn(600)
+            $('.pop-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
+            $("#win-block").fadeIn()
+            $(".pop-bg").fadeIn()
             a = attempts.innerHTML - NoMoreAttempts.innerHTML 
             break;
 
          //не угадал
          case NoMoreAttempts.innerHTML == '0':
             input.setAttribute('disabled', 'true')
-            $('.past-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
-            $("#game-over-block").fadeIn(600)
-            $(".past-block-bg").fadeIn(600)
+            $('.pop-block__random-number').html(RandomNum.toLocaleString('ru-Ru')) 
+            $("#game-over-block").fadeIn()
+            $(".pop-bg").fadeIn()
             break;
          
          //вводимое число больше максимально возможного загаданного числа
@@ -271,9 +283,9 @@ function gethints(){
 
    function createAndPrepend(inner){
          b = document.createElement("p");
-         b.className = "play__box_item";
+         b.className = "second-block__box_item";
          b.innerHTML = inner;
-         document.querySelector('.play__hints-block').prepend(b)
+         document.querySelector('.second-block__box:nth-child(6)').prepend(b)
          arr.splice(result, 1)
          arr.sort(() => Math.random() - 0.5)
    }
@@ -490,15 +502,15 @@ function gethints(){
 
 function surrender(){
    NoMoreAttempts.innerHTML = 0
-   $("#game-over-block").fadeIn(600)
-   $(".past-block-bg").fadeIn(600)
-   $('.past-block__random-number').text(RandomNum)
+   $("#game-over-block").fadeIn()
+   $(".pop-bg").fadeIn()
+   $('.pop-block__random-number').text(RandomNum.toLocaleString('ru-Ru'))
 }
 
 function restart(){
-   $('.play').fadeOut()
-   $('.past-block').fadeOut()
-   $('.past-block-bg').fadeOut()
+   $('.second-block').fadeOut()
+   $('.pop-block').fadeOut()
+   $('.pop-bg').fadeOut()
    setTimeout(function(){
       window.location.reload()
    }, 350)
