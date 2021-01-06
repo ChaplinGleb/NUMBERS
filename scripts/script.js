@@ -1,6 +1,4 @@
 const btnhints = document.getElementById('gethints');
-
-
 const checkbox = document.getElementById('checkbox1');
 const input = document.getElementById('playInput');
 let NumberOfHints = document.getElementById('NumberOfHints');
@@ -175,7 +173,7 @@ function checkboxCheck(){
    }
 }
 
-function start(){
+function play(){
    $('.first-block').fadeOut()
    setTimeout(function(){
       $('.second-block').fadeIn()

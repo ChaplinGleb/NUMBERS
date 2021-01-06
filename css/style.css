@@ -126,7 +126,14 @@ input::placeholder {
   background: url(../images/bg.png);
   background-size: cover;
   background-position: top;
+  position: absolute;
+  left: 0;
+  right: 0;
   margin: 0 auto;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -226,10 +233,6 @@ input::placeholder {
 /* FIRST-BLOCK */
 .first-block {
   display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(50% - 136px);
   height: 238px;
   opacity: 0;
   -webkit-transition: .2s;
@@ -351,13 +354,6 @@ input::placeholder {
 
 /* SECOND-BLOCK */
 .second-block {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
   display: none;
 }
 
@@ -451,12 +447,7 @@ input::placeholder {
 
 .pop-block {
   display: none;
-  position: absolute;
   text-align: center;
-  left: 0;
-  right: 0;
-  top: calc(50% - 100px);
-  margin: 0 auto;
   padding: 10px 0;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-20%, #FABE82), color-stop(110%, #03418A));
   background: -webkit-linear-gradient(#FABE82 -20%, #03418A 110%);
