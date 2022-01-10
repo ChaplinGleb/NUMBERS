@@ -26,4 +26,4 @@
 - Сумма всех цифр в числе.
 
 ## Старт
-Чтобы использовать калькулятор - просто [открой его](https://chaplingleb.github.io/NUMBERS/).
+Чтобы начать играть - [открой игру](https://chaplingleb.github.io/NUMBERS/).
